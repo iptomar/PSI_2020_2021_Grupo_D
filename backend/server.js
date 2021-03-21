@@ -1,25 +1,40 @@
+require("dotenv").config();
+
 const express = require("express");
 const helmet = require("helmet");
 const cors = require("cors");
 
-const port = 3001;
+const db = require("./configs/mongodb.js");
 
-const app = express();
+Promise.resolve(db.connectDB())
+  .then(() => {
+    const authRoute = require("./routes/user-route");
 
-app.use(helmet());
-app.use(cors());
-app.use(express.json());
+    const port = 3001;
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+    const app = express();
 
-app.post("/", (req, res) => {
-  res.send(
-    req.body
-  );
-});
+    app.use(helmet());
+    app.use(cors());
+    app.use(express.json());
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
-});
+    app.use("/api/user", authRoute);
+
+    app.get("/", (req, res) => {
+      res.send("Hello World!");
+    });
+
+    app.post("/", (req, res) => {
+      res.send(req.body);
+    });
+
+    app.listen(port, () => {
+      console.log(
+        `\x1b[34mSanta listening at http://localhost:${port}...\x1b[0m`
+      );
+    });
+  })
+  .catch((err) => {
+    console.error(err);
+    process.exit();
+  });
