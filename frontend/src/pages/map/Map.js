@@ -1,5 +1,3 @@
-import logo from "./logo.png";
-import "./App.css";
 import {
   GoogleMap,
   Marker,
@@ -7,17 +5,18 @@ import {
   useLoadScript,
 } from "@react-google-maps/api";
 import { useState, useCallback } from "react";
-
-//tamanho e style do map
-const containerStyle = {
-  width: "100vw",
-  height: "100vh",
-};
+import logo from "../../assets/logo.png";
 
 //centro do mapa quando o mapa faz load
 const center = {
   lat: 39.23,
   lng: -8.68,
+};
+
+//tamanho e style do map
+const containerStyle = {
+  width: "100vw",
+  height: "100vh",
 };
 
 const options = {
@@ -27,7 +26,7 @@ const options = {
 //?nao faz nada mas acho que é para carregar da bd tambem (?? talvez)
 const libraries = ["places"];
 
-const App = () => {
+const Map = () => {
   // state que controla os marcadores
   // aqui se calhar vai ser carregado da base de dados
   const [markers, setMarkers] = useState([
@@ -114,6 +113,7 @@ const App = () => {
           >
             <div>
               {/*O state do selected markers tem toda a informaçao do marker por isso é so meter*/}
+
               <h1>{selectedMarker.desc}</h1>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -130,9 +130,11 @@ const App = () => {
         )}
       </GoogleMap>
     </div>
+  ) : loadError ? (
+    <div>error</div>
   ) : (
     <div>Loading Maps...</div>
   );
 };
 
-export default App;
+export default Map;
