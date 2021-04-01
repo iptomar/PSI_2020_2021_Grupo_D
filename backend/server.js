@@ -9,6 +9,7 @@ const db = require("./configs/mongodb.js");
 Promise.resolve(db.connectDB())
   .then(() => {
     const authRoute = require("./routes/user-route");
+    const mapRoute = require("./routes/map-route")
 
     const port = 3001;
 
@@ -19,14 +20,7 @@ Promise.resolve(db.connectDB())
     app.use(express.json());
 
     app.use("/api/user", authRoute);
-
-    app.get("/", (req, res) => {
-      res.send("Hello World!");
-    });
-
-    app.post("/", (req, res) => {
-      res.send(req.body);
-    });
+    app.use("/api/map", mapRoute);
 
     app.listen(port, () => {
       console.log(
