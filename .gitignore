@@ -3,6 +3,12 @@
 # misc
 .vscode
 
+### Pasta Geral
+# dependencies
+node_modules
+package-lock.json
+package.json
+
 ### front-end
 # dependencies
 frontend/node_modules/
