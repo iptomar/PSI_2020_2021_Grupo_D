@@ -1,0 +1,13 @@
+/* arranjar cor dos navlinks */
+
+.navText {
+  color: rgba(255, 255, 255, 0.5) !important;
+
+  text-decoration: none !important;
+}
+
+.navText:hover {
+  color: rgba(255, 255, 255, 0.75) !important;
+
+  text-decoration: none;
+}

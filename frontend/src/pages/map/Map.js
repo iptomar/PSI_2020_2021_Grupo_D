@@ -6,16 +6,11 @@ import {
 } from "@react-google-maps/api";
 import { useState, useCallback } from "react";
 
-
 //import css
-import './map.css'
-
-//import bootstrap
-import {Navbar, Nav, NavDropdown} from 'react-bootstrap';
+import "./map.css";
 
 //import global do logo
 import logo from "../../assets/logo.png";
-import logo_cut from "../../assets/logo_cut.png";
 
 //centro do mapa quando o mapa faz load
 const center = {
@@ -94,43 +89,6 @@ const Map = () => {
       <img src={logo} alt="" />
       </div> */}
       {/* navbar --------- */}
-      <Navbar bg="dark" variant="dark">
-        <Navbar.Brand href="#home">
-      <span className="circulo-branco"><img
-        alt=""
-        src={logo_cut}
-        width="30"
-        height="30"
-        className="d-inline-block align-top"
-      /></span>{' '}
-      Fundação Luiza Andaluz
-    </Navbar.Brand>
-    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-  <Navbar.Collapse id="basic-navbar-nav">
-    <Nav className="mr-auto">
-      <Nav.Link href="#home">Home</Nav.Link>
-      <NavDropdown title="A fundação" id="basic-nav-dropdown">
-        <NavDropdown.Item href="#action/3.1">A intituição</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.2">Visão</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.3">Valores</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.4">Missão</NavDropdown.Item>
-        <NavDropdown.Divider />
-        <NavDropdown.Item href="#action/3.5">Organograma</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.6">Plano atividades</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.6">Galeria</NavDropdown.Item>
-      </NavDropdown>
-      <Nav.Link href="#link">Quer ajudar?</Nav.Link>
-      <Nav.Link href="#link">Presidente</Nav.Link>
-       </Nav>
-       {/* talvez adicionar um icone de um telefone ou voltar a por a esquerda porque a direita ta muito a parte */}
-      <Nav className="justify-content-end">
-      <Nav.Link  href="#link">Contactos</Nav.Link>
-      </Nav>
-   
-    
-  </Navbar.Collapse>
-  </Navbar>
-
 
       <GoogleMap
         mapContainerStyle={containerStyle}
