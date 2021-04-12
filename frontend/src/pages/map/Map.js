@@ -5,6 +5,11 @@ import {
   useLoadScript,
 } from "@react-google-maps/api";
 import { useState, useCallback } from "react";
+
+//import css
+import "./map.css";
+
+//import global do logo
 import logo from "../../assets/logo.png";
 
 //centro do mapa quando o mapa faz load
@@ -14,9 +19,12 @@ const center = {
 };
 
 //tamanho e style do map
+// width: "100vw",
+//   height: "100vh"
+//   ^ isto é mais correto porque nao esconde o zoom in e o zoom out do mapa mas depois fica com scroll. dar fix mais tarde
 const containerStyle = {
-  width: "100vw",
-  height: "100vh",
+  width: "100vmax",
+  height: "100vmax",
 };
 
 const options = {
@@ -74,11 +82,14 @@ const Map = () => {
   });
 
   // se isLoaded é true mete o component to googleMaps, se não escreve Loading Maps
+  //onde é que tens a className logo? é da api? @rodrigo
   return isLoaded ? (
     <div>
-      <h1 className="logo">
-        Avé Maria <img src={logo} alt="" />
-      </h1>
+      {/* para a side bar ?<div className="titulo-caixa">
+      <img src={logo} alt="" />
+      </div> */}
+      {/* navbar --------- */}
+
       <GoogleMap
         mapContainerStyle={containerStyle}
         zoom={10}
