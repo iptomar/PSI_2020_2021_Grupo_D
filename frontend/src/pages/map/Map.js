@@ -4,13 +4,12 @@ import {
   InfoWindow,
   useLoadScript,
 } from "@react-google-maps/api";
-import { useState, useCallback } from "react";
-
 //import css
 import "./map.css";
-
 //import global do logo
+import { useState, useCallback, useEffect } from "react";
 import logo from "../../assets/logo.png";
+import services from "../../services";
 
 //centro do mapa quando o mapa faz load
 const center = {
@@ -31,42 +30,30 @@ const options = {
   disableDefaultUI: false,
 };
 
-//?nao faz nada mas acho que é para carregar da bd tambem (?? talvez)
-const libraries = ["places"];
-
 const Map = () => {
   // state que controla os marcadores
   // aqui se calhar vai ser carregado da base de dados
-  const [markers, setMarkers] = useState([
-    {
-      id: 0,
-      lat: 39.23265937384665,
-      lng: -9.084434204101552,
-      desc: "Marker 1",
-    },
-    {
-      id: 1,
-      lat: 39.176259071456194,
-      lng: -8.765144042968739,
-      desc: "Marker 2",
-    },
-    {
-      id: 2,
-      lat: 39.176259071456194,
-      lng: -8.105141442968739,
-      desc: "Marker 3",
-    },
-    {
-      id: 3,
-      lat: 39.176259071456194,
-      lng: -8.565144242968739,
-      desc: "Marker 4",
-    },
-  ]);
+  const [markers, setMarkers] = useState([]);
 
+  useEffect(() => {
+    async function getPoints() {
+      await services.map
+        .getPoints()
+        .then((points) => {
+          setMarkers(points);
+          console.log(points);
+        })
+        .catch((e) => {
+          console.error(e);
+        });
+    }
+    getPoints();
+  }, []);
+
+  //TODO: this removes markers
   const onMapClick = useCallback((e) => {
     const newMarker = {
-      id: markers.length + 1,
+      _id: markers.length + 1,
       lat: e.latLng.lat(),
       lng: e.latLng.lng(),
     };
@@ -78,7 +65,7 @@ const Map = () => {
   //api key aqui
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: "AIzaSyBOxAahL77d5AtjV-Ijxf7p8jmff6MMGMA",
-    libraries,
+    markers,
   });
 
   // se isLoaded é true mete o component to googleMaps, se não escreve Loading Maps
@@ -100,7 +87,7 @@ const Map = () => {
         {markers.map((marker) => (
           //aqui faz o render dos marcadores anteriores e os que sejam a clicar
           <Marker
-            key={marker.id}
+            key={marker._id}
             position={{ lat: marker.lat, lng: marker.lng }}
             //passa o objeto marker para o state dos markers
             onClick={() => {
@@ -108,7 +95,7 @@ const Map = () => {
             }}
 
             //icon do marker pode ser mudado : icon = {}
-          ></Marker>
+          />
         ))}
         {selectedMarker && (
           //Info aqui. O 0.045 é para fazer com que a window fiquem em cima do marker.
