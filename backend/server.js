@@ -11,7 +11,7 @@ Promise.resolve(db.connectDB())
     const authRoute = require("./routes/user-route");
     const mapRoute = require("./routes/map-route")
 
-    const port = 3001;
+    const port = process.env.PORT || 3001;
 
     const app = express();
 
