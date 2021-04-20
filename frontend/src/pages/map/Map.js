@@ -58,7 +58,7 @@ const Map = () => {
       lng: e.latLng.lng(),
     };
     setMarkers([...markers, newMarker]);
-  }, []);
+  });
 
   const [selectedMarker, setselectedMarker] = useState(null);
 
