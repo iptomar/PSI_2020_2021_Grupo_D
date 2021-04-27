@@ -1,23 +1,4 @@
-/*possivel integrassao de uma sidebar me vez de navbar? talvez depois remover*/
-.titulo-caixa {
-  position: absolute;
-
-  left: 50;
-  right: 100;
-  text-align: center;
-
-  z-index: 10;
-  opacity: 50%;
-}
-
-.circulo-branco {
-  background-color: white;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  display: inline-block;
-}
-
-.floatdireita {
-  float: right;
+.leaflet-container {
+  width: 100vw;
+  height: 100vh;
 }
