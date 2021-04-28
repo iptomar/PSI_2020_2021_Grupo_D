@@ -7,6 +7,7 @@ import reportWebVitals from "./reportWebVitals";
 
 //import bootstrap
 import "bootstrap/dist/css/bootstrap.css";
+import 'semantic-ui-css/semantic.min.css';
 
 ReactDOM.render(
   <React.StrictMode>
