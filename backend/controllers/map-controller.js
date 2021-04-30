@@ -1,15 +1,36 @@
 const mapService = require("../services/map-service.js");
 
-exports.getPoints = (req, res) => {
+exports.getStories = (_, res) => {
   mapService
-    .getPoints()
-    .then((data) => res.send(data))
-    .catch((message) => res.status(500).send(message));
+    .getStories()
+    .then((data) => res.status(200).send(data))
+    .catch((error) => res.status(500).send(error.message));
 };
 
-exports.createPoint = (req, res) => {
+exports.getUncheckedStories = (_, res) => {
   mapService
-    .createPoint(req.body.lat, req.body.lng, req.body.desc)
+    .getUncheckedStories()
+    .then((data) => res.status(200).send(data))
+    .catch((error) => res.status(500).send(error.message));
+};
+
+exports.createStory = (req, res) => {
+  mapService
+    .createStory(req.body.lat, req.body.lng, req.body.desc)
     .then(() => res.status(200).json({ success: true }))
+    .catch((error) => res.status(500).send(error.message));
+};
+
+exports.checkStory = (req, res) => {
+  mapService
+    .checkStory(req.params.id)
+    .then((data) => res.status(200).send(data))
+    .catch((error) => res.status(500).send(error.message));
+};
+
+exports.removeStory = (req, res) => {
+  mapService
+    .removeStory(req.params.id)
+    .then((data) => res.status(200).send(data))
     .catch((error) => res.status(500).send(error.message));
 };

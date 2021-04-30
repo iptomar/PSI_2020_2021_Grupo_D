@@ -1,14 +1,15 @@
 
 ### User Routes
-```bash
-/api/user/login --> POST login
-/api/user/register --> POST register
+```shell
+/api/user/login             --> POST login
+/api/user/register          --> POST register
 ```
 
-
-
 ### Map Routes
-```bash
-/api/map/points --> GET points
-/api/map/point --> POST point
+```shell
+/api/map/stories            --> GET stories
+/api/map/stories-unchecked  --> GET story
+/api/map/story/create       --> POST create story
+/api/map/story-check/:id    --> PUT check story
+/api/map/story/delete/:id   --> DELETE story
 ```
