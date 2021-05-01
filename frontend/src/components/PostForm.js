@@ -1,17 +1,17 @@
-import React from "react"; 
-import Form from 'react-bootstrap/Form'
-import Col from 'react-bootstrap/Row'
-import Button from 'react-bootstrap/Button'
+import React from "react";
+import {Form,Col,Button} from 'react-bootstrap'
 
-export const PostForm = ()=>(
 
-<Form className>
+
+const MapForm = () => {
+  return (
+    <Form>
     <Form.Group controlId="formExit">
         <Button variant="secondary" >Voltar para o Mapa</Button>
     </Form.Group>
     <Form.Group controlId="formName">
         <Form.Label>Introduza o seu Nome</Form.Label>
-        <Form.Control type="text" className="my-auto" placeholder="Seu Nome"/>         
+        <Form.Control type="text" className="my-auto" placeholder="Seu Nome"/>
     </Form.Group>
 
   <Form.Group controlId="formEmail">
@@ -32,12 +32,12 @@ export const PostForm = ()=>(
             <Col>
             <Form.Control type="" placeholder="Latitude" disabled/>
             </Col>
-            <Col>   
+            <Col>
             <Form.Control type="" placeholder="Longitude" disabled/>
             </Col>
         </Form.Row>
     </Form.Group>
-    
+
     <Form.Group controlId="formImages">
         <Form.Label>Mostre-nos as suas Fotos</Form.Label>
         <Form.File id="imageFile" multiple/>
@@ -47,6 +47,7 @@ export const PostForm = ()=>(
     Submit
   </Button>
 </Form>
+  )
+}
 
-
-);
+export default MapForm
