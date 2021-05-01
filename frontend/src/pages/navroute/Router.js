@@ -7,6 +7,7 @@ import QuerAjudar from "../querajudar/querajudar";
 import Fundacao from "../fundacao/fundacao";
 import Presidente from "../presidente/presidente";
 import Contactos from "../contactos/contactos";
+import Login from "../login/Login";
 
 import Navbar from "./navbar";
 
@@ -29,6 +30,9 @@ const ReactRouterSetup = () => {
         </Route>
         <Route exact path="/contactos">
           <Contactos></Contactos>
+        </Route>
+        <Route exact path="/backoffice/login">
+          <Login />
         </Route>
         <Route path="*">
           <Error></Error>

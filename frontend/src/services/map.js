@@ -2,7 +2,9 @@ import { request } from "../configs/apiMiddleware";
 
 //TODO: this
 export default {
-  getPoint: (id) => request("GET", `/api/map/point/${id}`),
-  getPoints: () => request("GET", "/api/map/points"),
-  createPoint: (jsonData) => request("POST", "/api/mappoint", { jsonData }),
+  getUncheckedStories: () => request("GET", "/api/map/stories-unchecked"),
+  getStories: () => request("GET", "/api/map/stories"),
+  createStory: (jsonData) => request("POST", "/api/map/story/create", { jsonData }),
+  checkStory: (id) => request("PUT", `api/map/story-check/${id}`),
+  deleteStory: (id) => request("PUT", `api/map/story/delete/${id}`),
 };

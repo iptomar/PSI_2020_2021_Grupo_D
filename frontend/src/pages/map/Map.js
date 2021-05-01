@@ -4,18 +4,16 @@ import {
   TileLayer,
   Marker,
   Popup,
-  useMapEvent,
 } from "react-leaflet";
-import { useCallback, useState, useEffect } from "react";
-import Mapclick from './MapClick'
+import { useState, useEffect } from "react";
+import Mapclick from "./MapClick";
 import services from "../../services";
-import Button from '../../components/button'
-import './map.css'
+import ButtonForm from "../../components/button";
+import "./map.css";
 import logo from "../../assets/logo.png";
 
 const Map = () => {
-
- const center = {
+  const center = {
     lat: 39.23,
     lng: -8.68,
   };
@@ -32,16 +30,15 @@ const Map = () => {
   const [toggleForm, setToggleForm] = useState(false);
 
   const formToggle = () => {
-      setToggleForm(!toggleForm);
-    }
+    setToggleForm(!toggleForm);
+  };
 
   useEffect(() => {
     async function getPoints() {
       await services.map
-        .getPoints()
+        .getStories()
         .then((points) => {
           setMarkers(points);
-          console.log(points);
         })
         .catch((e) => {
           console.error(e);
@@ -61,35 +58,27 @@ const Map = () => {
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      {toggleForm && <Mapclick/>}
-     <div className="button"><Button toggleForm = {formToggle} ></Button></div>
-      {!toggleForm && markers.map((marker) => (
+      {toggleForm && <Mapclick />}
+      <div className="sembutton">
+        <ButtonForm toggleForm={formToggle} />
+      </div>
+      {!toggleForm &&
+        markers.map((marker) => (
           //aqui faz o render dos marcadores anteriores e os que sejam a clicar
-      <Marker position={marker}>
-        <Popup>
-          <div>
-              {/*O state do selected markers tem toda a informaçao do marker por isso é so meter*/}
-
-              <h1>{marker.desc}</h1>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
-              <img src={logo} alt="" alignItems="center" />
-            </div>
-        </Popup>
-      </Marker>
-            //icon do marker pode ser mudado : icon = {}
+          <Marker key={marker._id} position={marker}>
+            <Popup>
+              <div>
+                {/*O state do selected markers tem toda a informaçao do marker por isso é so meter*/}
+                <h3>Historia aqui</h3>
+                <p1>{marker.desc}</p1>
+                <img src={logo} alt="" alignItems="center" />
+              </div>
+            </Popup>
+          </Marker>
+          //icon do marker pode ser mudado : icon = {}
         ))}
-    
     </MapContainer>
   );
-}
+};
 
-export default Map
-
+export default Map;

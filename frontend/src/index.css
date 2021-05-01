@@ -7,17 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.logo {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  z-index: 10;
-  margin: 0;
-  padding: 0;
-}
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-

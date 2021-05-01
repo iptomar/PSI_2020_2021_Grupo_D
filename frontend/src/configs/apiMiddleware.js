@@ -8,7 +8,7 @@ export const request = (method, route, params) => {
       method,
       headers: {
         ...(params &&
-          params.jsonData && { "Content-Type": "application/json" }),
+          params.jsonData && { "Content-Type": "application/json;charset=utf-8" }),
       },
       ...(params && {
         ...(params.jsonData && { body: JSON.stringify(params.jsonData) }),
@@ -17,7 +17,7 @@ export const request = (method, route, params) => {
       .then((res) => parseResponse(res))
       .then((data) => resolve(data))
       .catch((err) => {
-        console.error(`api middle error ${method} ${route}: ${err.message}`);
+        console.error(`api middle error ${method} ${route}:\n ${err}`);
         reject(err);
       });
   });

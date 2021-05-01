@@ -11,7 +11,7 @@ import {
 const MapClick = () => {
   const [position, setPosition] = useState(null)
 
-  const map = useMapEvent('click', (e) => {
+  useMapEvent('click', (e) => {
     setPosition(e.latlng)
   })
 

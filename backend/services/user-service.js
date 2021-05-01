@@ -1,11 +1,11 @@
 const db = require("../configs/mongodb").getDB();
 
-exports.register = (username, email, rawPassword) => {
+exports.register = (email, rawPassword) => {
   return new Promise((resolve, reject) => {
     try {
       db.collection("users")
-        .insertOne({ username, email, rawPassword })
-        .then(() => resolve("user added"))
+        .insertOne({ email, rawPassword })
+        .then(() => resolve())
         .catch((e) => reject(e.message));
     } catch (e) {
       reject(e.message);
@@ -13,15 +13,15 @@ exports.register = (username, email, rawPassword) => {
   });
 };
 
-exports.login = (username, rawPassword) => {
+exports.login = (email, rawPassword) => {
   return new Promise((resolve, reject) => {
     try {
       db.collection("users")
-        .findOne({ username })
+        .findOne({ email: email })
         .then((found) => {
           if (found) {
             if (found.rawPassword === rawPassword)
-              resolve(`${username} with password ${rawPassword} logged in`);
+              resolve();
             else reject(new Error("username and password don't match"));
           } else reject(new Error("user doesnt exist"));
         })
