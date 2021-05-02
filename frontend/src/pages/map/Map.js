@@ -11,6 +11,7 @@ import services from "../../services";
 import ButtonForm from "../../components/button";
 import "./map.css";
 import logo from "../../assets/logo.png";
+import Form from '../../components/PostForm'
 
 const Map = () => {
   const center = {
@@ -19,19 +20,24 @@ const Map = () => {
   };
 
   const containerStyle = {
-    width: "100vw",
+    width: "70vw",
     height: "100vh",
   };
 
   // state que controla os marcadores
-  // aqui se calhar vai ser carregado da base de dados
   const [markers, setMarkers] = useState([]);
 
   const [toggleForm, setToggleForm] = useState(false);
 
+  const [currentMarker, setCurrentMarker] = useState([]);
+
   const formToggle = () => {
     setToggleForm(!toggleForm);
   };
+
+  const onCoordChange = (lat,lng) =>{
+    setCurrentMarker([{lat,lng}]);
+  }
 
   useEffect(() => {
     async function getPoints() {
@@ -48,6 +54,7 @@ const Map = () => {
   }, []);
 
   return (
+    <div className = "grid-container ">
     <MapContainer
       center={center}
       zoom={7}
@@ -58,10 +65,10 @@ const Map = () => {
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      {toggleForm && <Mapclick />}
-      <div className="sembutton">
-        <ButtonForm toggleForm={formToggle} />
-      </div>
+      {toggleForm && <Mapclick onChange = {onCoordChange}/>}
+
+      {/* button */}
+      {!toggleForm && <div className="sembutton"><ButtonForm toggleForm={formToggle}/></div>}
       {!toggleForm &&
         markers.map((marker) => (
           //aqui faz o render dos marcadores anteriores e os que sejam a clicar
@@ -75,9 +82,11 @@ const Map = () => {
               </div>
             </Popup>
           </Marker>
-          //icon do marker pode ser mudado : icon = {}
         ))}
+
     </MapContainer>
+   {toggleForm && <div className = "form" ><Form coords = {currentMarker} toggleForm={formToggle} ></Form></div>}
+    </div> 
   );
 };
 

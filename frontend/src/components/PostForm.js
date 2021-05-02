@@ -1,13 +1,13 @@
 import React from "react";
-import {Form,Col,Button} from 'react-bootstrap'
+import {Form,Col} from 'react-bootstrap'
+import { Button } from "semantic-ui-react";
 
 
-
-const MapForm = () => {
+const MapForm = ({coords,toggleForm}) => {
   return (
     <Form>
     <Form.Group controlId="formExit">
-        <Button variant="secondary" >Voltar para o Mapa</Button>
+        <Button secondary onClick = {toggleForm}>Voltar para o Mapa</Button>
     </Form.Group>
     <Form.Group controlId="formName">
         <Form.Label>Introduza o seu Nome</Form.Label>
@@ -30,10 +30,10 @@ const MapForm = () => {
     <Form.Group controlId="formCoordinates">
         <Form.Row>
             <Col>
-            <Form.Control type="" placeholder="Latitude" disabled/>
+            <Form.Control value = {coords.map((coord)=> (coord.lat))} placeholder="Latitude" disabled/>
             </Col>
             <Col>
-            <Form.Control type="" placeholder="Longitude" disabled/>
+            <Form.Control value = {coords.map((coord)=> (coord.lat))} placeholder="Longitude" disabled/>
             </Col>
         </Form.Row>
     </Form.Group>
@@ -43,7 +43,7 @@ const MapForm = () => {
         <Form.File id="imageFile" multiple/>
     </Form.Group>
 
-  <Button variant="primary" type="submit">
+  <Button primary type="submit">
     Submit
   </Button>
 </Form>
