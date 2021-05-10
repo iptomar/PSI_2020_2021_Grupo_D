@@ -1,5 +1,7 @@
+//Conecção e instância à base de dados
 const db = require("../configs/mongodb").getDB();
 
+//Função que permite o registo do utlizador na tabela "users"
 exports.register = (email, rawPassword) => {
   return new Promise((resolve, reject) => {
     try {
@@ -13,6 +15,7 @@ exports.register = (email, rawPassword) => {
   });
 };
 
+//Função que permite o login  do utlizador 
 exports.login = (email, rawPassword) => {
   return new Promise((resolve, reject) => {
     try {
