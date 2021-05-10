@@ -1,3 +1,5 @@
+//Importação de módulos
+
 import React from "react";
 import {
   MapContainer,
@@ -13,32 +15,38 @@ import "./map.css";
 import logo from "../../assets/logo.png";
 import Form from '../../components/PostForm'
 
+//Constante que determina o centro do mapa
 const Map = () => {
   const center = {
     lat: 39.23,
     lng: -8.68,
   };
 
+  //Constante que determina a altura e largura do mapa
   const containerStyle = {
     width: "70vw",
     height: "100vh",
   };
 
-  // state que controla os marcadores
+  // constantes  para controle dos marcadores
   const [markers, setMarkers] = useState([]);
 
   const [toggleForm, setToggleForm] = useState(false);
 
   const [currentMarker, setCurrentMarker] = useState([]);
 
+  //Evento para display do formulario de submissão de novo marker 
   const formToggle = () => {
     setToggleForm(!toggleForm);
   };
 
+//Evento para adicionar ou remover um marker
   const onCoordChange = (lat,lng) =>{
     setCurrentMarker([{lat,lng}]);
   }
 
+
+  //Função que faz o load dos respectivos markers no load da pagina
   useEffect(() => {
     async function getPoints() {
       await services.map
@@ -53,6 +61,8 @@ const Map = () => {
     getPoints();
   }, []);
 
+
+  //Retorno do html do mapa
   return (
     <div className = "grid-container ">
     <MapContainer

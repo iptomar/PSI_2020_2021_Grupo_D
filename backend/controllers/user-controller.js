@@ -1,5 +1,7 @@
+//Inclusão e instância do serviço user-service.js
 const userService = require("../services/user-service.js");
 
+//Função de controller que permite registo de um utilizador
 exports.register = (req, res) => {
   userService
     .register(req.body.email, req.body.password)
@@ -7,6 +9,7 @@ exports.register = (req, res) => {
     .catch((message) => res.status(500).send(message));
 };
 
+//Função de controller que permite login do utilizador
 exports.login = (req, res) => {
   userService
     .login(req.body.email, req.body.password)

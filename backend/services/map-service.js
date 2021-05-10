@@ -1,6 +1,10 @@
+//Conecção e instância à base de dados
 const db = require("../configs/mongodb").getDB();
+
+//Instancia do ObjectId
 const ObjectId = require("mongodb").ObjectID;
 
+//Query à base de dados que obtêm a coleção de "Stories"
 exports.getStories = () => {
   return new Promise((resolve, reject) => {
     try {
@@ -14,7 +18,7 @@ exports.getStories = () => {
     }
   });
 };
-
+//Query à base de dados que obtêm a coleção de "stories-unchecked"
 exports.getUncheckedStories = () => {
   return new Promise((resolve, reject) => {
     try {
@@ -29,6 +33,7 @@ exports.getUncheckedStories = () => {
   });
 };
 
+//Query à base de dados de inserção  que permite criar uma "story"
 exports.createStory = (lat, lng, desc) => {
   return new Promise((resolve, reject) => {
     try {
@@ -42,6 +47,8 @@ exports.createStory = (lat, lng, desc) => {
   });
 };
 
+
+//Query à base de dados  que permite obter uma "story"
 exports.checkStory = (uid) => {
   return new Promise((resolve, reject) => {
     try {
@@ -63,6 +70,7 @@ exports.checkStory = (uid) => {
   });
 };
 
+//Query à base de dados  que permite remover uma "story"
 exports.removeStory = (uid) => {
   return new Promise((resolve, reject) => {
     try {

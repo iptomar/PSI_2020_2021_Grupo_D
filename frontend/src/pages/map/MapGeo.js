@@ -1,3 +1,5 @@
+//Importação de módulos
+
 import React from 'react'
 import {useState} from 'react'
 import {
@@ -6,6 +8,7 @@ import {
   useMapEvents,
 } from "react-leaflet";
 
+//
 const MapGeo = () => {
   const [position, setPosition] = useState(null)
 
@@ -15,10 +18,12 @@ const MapGeo = () => {
     },
     locationfound(e) {
       setPosition(e.latlng)
+     
       map.flyTo(e.latlng, map.getZoom())
     },
   })
 
+  //Retorno do html do marker
   return position === null ? null : (
     <Marker position={position}>
       <Popup>You are here</Popup>
