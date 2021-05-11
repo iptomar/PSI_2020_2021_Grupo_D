@@ -21,7 +21,7 @@ export default class Login extends Component {
   render() {
     const { email, password } = this.state;
     return (
-      <div className="container">
+      <div className="Login">
         <Form onSubmit={(evt) => this.handleSubmit(evt)}>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>

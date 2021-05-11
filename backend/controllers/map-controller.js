@@ -17,11 +17,11 @@ exports.getUncheckedStories = (_, res) => {
     .catch((error) => res.status(500).send(error.message));
 };
 
-//Função de controller que permite criar  coordenadas no serviço "map-service.js"
+//Função de controller que permite criar coordenadas no serviço "map-service.js"
 exports.createStory = (req, res) => {
   mapService
-    .createStory(req.body.lat, req.body.lng, req.body.desc)
-    .then(() => res.status(200).json({ success: true }))
+    .createStory(req.body.name, req.body.email, req.body.story, req.body.marker)
+    .then((r) => res.status(200).json({ id: r }))
     .catch((error) => res.status(500).send(error.message));
 };
 
@@ -34,7 +34,7 @@ exports.checkStory = (req, res) => {
     .catch((error) => res.status(500).send(error.message));
 };
 
-//Função de controller que permite remover um marker pelo  "map-service.js"
+//Função de controller que permite remover um marker pelo "map-service.js"
 exports.removeStory = (req, res) => {
   mapService
     .removeStory(req.params.id)

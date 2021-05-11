@@ -1,4 +1,3 @@
-
 //Inclusão do modulo express com o método Router() para instância do mesmo
 const router = require("express").Router();
 

@@ -1,53 +1,82 @@
-import React from "react";
-import {Form,Col} from 'react-bootstrap'
+import React, { useState } from "react";
+import { Form, Col } from "react-bootstrap";
 import { Button } from "semantic-ui-react";
+import services from "../services";
 
+const MapForm = ({ marker, toggleForm }) => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [story, setStory] = useState("");
+  //TODO: image here, or image function
 
-const MapForm = ({coords,toggleForm}) => {
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+
+    services.map
+      .createStory({ name, email, story, marker })
+      .then((res) => console.log(res))
+      .catch((err) => console.error(err));
+  };
+
   return (
-    <Form>
-    <Form.Group controlId="formExit">
-        <Button secondary onClick = {toggleForm}>Voltar para o Mapa</Button>
-    </Form.Group>
-    <Form.Group controlId="formName">
+    <Form onSubmit={(evt) => handleSubmit(evt)}>
+      <Form.Group controlId="formExit">
+        <Button secondary onClick={toggleForm}>
+          Voltar para o Mapa
+        </Button>
+      </Form.Group>
+      <Form.Group controlId="formName">
         <Form.Label>Introduza o seu Nome</Form.Label>
-        <Form.Control type="text" className="my-auto" placeholder="Seu Nome"/>
-    </Form.Group>
+        <Form.Control
+          type="text"
+          className="my-auto"
+          placeholder="Seu Nome"
+          onChange={(e) => setName(e.target.value)}
+        />
+      </Form.Group>
 
-  <Form.Group controlId="formEmail">
-    <Form.Label>Email address</Form.Label>
-    <Form.Control type="email" placeholder="Email" />
-    <Form.Text className="text-muted">
-    Não vamos partilhar o seu email com mais ninguem.
-    </Form.Text>
-  </Form.Group>
+      <Form.Group controlId="formEmail">
+        <Form.Label>Email address</Form.Label>
+        <Form.Control
+          type="email"
+          placeholder="Email"
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <Form.Text className="text-muted">
+          Não vamos partilhar o seu email com mais ninguem.
+        </Form.Text>
+      </Form.Group>
 
-  <Form.Group controlId="formStory">
-    <Form.Label> Conte-nos a sua história</Form.Label>
-    <Form.Control as="textarea" rows={5}/>
-  </Form.Group>
+      <Form.Group controlId="formStory">
+        <Form.Label> Conte-nos a sua história</Form.Label>
+        <Form.Control
+          as="textarea"
+          rows={5}
+          onChange={(e) => setStory(e.target.value)}
+        />
+      </Form.Group>
 
-    <Form.Group controlId="formCoordinates">
+      <Form.Group controlId="formmarkerinates">
         <Form.Row>
-            <Col>
-            <Form.Control value = {coords.map((coord)=> (coord.lat))} placeholder="Latitude" disabled/>
-            </Col>
-            <Col>
-            <Form.Control value = {coords.map((coord)=> (coord.lat))} placeholder="Longitude" disabled/>
-            </Col>
+          <Col>
+            <Form.Control value={marker[0]} placeholder="Latitude" disabled />
+          </Col>
+          <Col>
+            <Form.Control value={marker[1]} placeholder="Longitude" disabled />
+          </Col>
         </Form.Row>
-    </Form.Group>
+      </Form.Group>
 
-    <Form.Group controlId="formImages">
+      <Form.Group controlId="formImages">
         <Form.Label>Mostre-nos as suas Fotos</Form.Label>
-        <Form.File id="imageFile" multiple/>
-    </Form.Group>
+        <Form.File id="imageFile" multiple />
+      </Form.Group>
 
-  <Button primary type="submit">
-    Submit
-  </Button>
-</Form>
-  )
-}
+      <Button primary type="submit">
+        Submit
+      </Button>
+    </Form>
+  );
+};
 
-export default MapForm
+export default MapForm;

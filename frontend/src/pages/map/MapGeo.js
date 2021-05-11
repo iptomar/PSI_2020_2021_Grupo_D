@@ -1,34 +1,28 @@
-//Importação de módulos
-
-import React from 'react'
-import {useState} from 'react'
-import {
-  Marker,
-  Popup,
-  useMapEvents,
-} from "react-leaflet";
+import React from "react";
+import { useState } from "react";
+import { Marker, Popup, useMapEvents } from "react-leaflet";
 
 //
 const MapGeo = () => {
-  const [position, setPosition] = useState(null)
+  const [position, setPosition] = useState(null);
 
   const map = useMapEvents({
     tileload() {
-      map.locate()
+      map.locate();
     },
     locationfound(e) {
-      setPosition(e.latlng)
-     
-      map.flyTo(e.latlng, map.getZoom())
+      setPosition(e.latlng);
+
+      map.flyTo(e.latlng, map.getZoom());
     },
-  })
+  });
 
   //Retorno do html do marker
   return position === null ? null : (
     <Marker position={position}>
       <Popup>You are here</Popup>
     </Marker>
-  )
-}
+  );
+};
 
-export default MapGeo
+export default MapGeo;

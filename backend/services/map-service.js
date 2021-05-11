@@ -34,19 +34,18 @@ exports.getUncheckedStories = () => {
 };
 
 //Query à base de dados de inserção  que permite criar uma "story"
-exports.createStory = (lat, lng, desc) => {
+exports.createStory = (name, email, story, marker) => {
   return new Promise((resolve, reject) => {
     try {
       db.collection("stories-unchecked")
-        .insertOne({ lat, lng, desc })
-        .then(() => resolve("story added"))
+        .insertOne({ name, email, story, lat: marker[0], lng: marker[1] })
+        .then((r) => resolve(r.insertedId))
         .catch((e) => reject(e.message));
     } catch (e) {
       reject(e);
     }
   });
 };
-
 
 //Query à base de dados  que permite obter uma "story"
 exports.checkStory = (uid) => {
@@ -55,8 +54,7 @@ exports.checkStory = (uid) => {
       db.collection("stories-unchecked")
         .findOne({ _id: ObjectId(uid) })
         .then((story) => {
-          if(!story)
-            reject(new Error("no story"))
+          if (!story) reject(new Error("no story"));
           this.removeStory(story._id);
           db.collection("stories")
             .insertOne(story)

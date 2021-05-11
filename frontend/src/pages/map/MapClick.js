@@ -1,5 +1,3 @@
-//Importação de módulos
-
 import React from "react";
 import {useState} from 'react'
 import {
@@ -14,10 +12,8 @@ const MapClick = ({onChange}) => {
   const [position, setPosition] = useState(null)
 
   useMapEvent('click', (e) => {
-
-    setPosition(e.latlng);
-    const {lat,lng} = e.latlng;
-    onChange(lat,lng);
+    setPosition([e.latlng.lat, e.latlng.lng]);
+    onChange([e.latlng.lat, e.latlng.lng]);
   })
 
 
