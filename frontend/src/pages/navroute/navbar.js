@@ -26,7 +26,7 @@ const Navegbar = () => {
             className="d-inline-block align-top circulo-branco"
           />
         </span>{" "}
-        Fundação Luiza Andaluz
+        Fundação Luiza Andaluz Centro de Conhecimento
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">

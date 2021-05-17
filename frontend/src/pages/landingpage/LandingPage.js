@@ -14,7 +14,7 @@ const landingpage = () => {
         <div class="bemvindo-container fade-in-text">
           <h1 class="mb-4 pb-0">
             Bem Vindo ao<span> mapa </span>interativo da{" "}
-            <span>Fundação Luiza Andaluz</span>
+            <span>Fundação Luiza Andaluz </span>Centro de Conhecimento
           </h1>
           <Link to="/mapa">
             <a class="play-btn mb-4"></a>

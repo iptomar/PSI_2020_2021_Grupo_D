@@ -2,7 +2,7 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // pages
 //import Home from "../map/Map";
-import Home from "../landingpage/landingpage";
+import Home from "../landingpage/LandingPage";
 import Error from "../error/error";
 import QuerAjudar from "../querajudar/querajudar";
 import Mapa from "../map/Map";
