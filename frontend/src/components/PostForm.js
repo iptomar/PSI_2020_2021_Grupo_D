@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Form, Col } from "react-bootstrap";
+import { withRouter } from "react-router";
 import { Button } from "semantic-ui-react";
 import services from "../services";
 
@@ -21,7 +22,11 @@ const MapForm = ({ marker, toggleForm }) => {
   return (
     <Form onSubmit={(evt) => handleSubmit(evt)}>
       <Form.Group controlId="formExit">
-        <Button secondary onClick={toggleForm}>
+        <Button
+          secondary
+          onClick={toggleForm}
+          style={{ backgroundColor: "darkred", color: "white" }}
+        >
           Voltar para o Mapa
         </Button>
       </Form.Group>
@@ -42,9 +47,7 @@ const MapForm = ({ marker, toggleForm }) => {
           placeholder="Email"
           onChange={(e) => setEmail(e.target.value)}
         />
-        <Form.Text className="text-muted">
-          Não vamos partilhar o seu email com mais ninguem.
-        </Form.Text>
+        <Form.Text>Não vamos partilhar o seu email com mais ninguem.</Form.Text>
       </Form.Group>
 
       <Form.Group controlId="formStory">
@@ -72,7 +75,11 @@ const MapForm = ({ marker, toggleForm }) => {
         <Form.File id="imageFile" multiple />
       </Form.Group>
 
-      <Button primary type="submit">
+      <Button
+        primary
+        type="submit"
+        style={{ backgroundColor: "#a379c9", color: "white" }}
+      >
         Submit
       </Button>
     </Form>

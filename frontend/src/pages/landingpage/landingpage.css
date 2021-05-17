@@ -1,0 +1,275 @@
+/*--------------------------------------------------------------
+# bemvindo Section
+--------------------------------------------------------------*/
+#bemvindo {
+  position: relative;
+}
+
+#bemvindo .divimg {
+  width: 100%;
+  height: 100vh;
+  background: url(luizaandaluz.jpg) top center;
+  background-size: cover;
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  /* filter: contrast(35%);
+  -webkit-filter: contrast(35%); */
+  /* filter: saturate(50%); */
+}
+
+@media (min-width: 1024px) {
+  #bemvindo {
+    background-attachment: fixed;
+  }
+}
+
+#bemvindo .bemvindo-container {
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 0 15px;
+}
+
+@media (max-width: 991px) {
+  #bemvindo .bemvindo-container {
+    top: 70px;
+  }
+}
+
+#bemvindo h1 {
+  color: #015486;
+
+  font-size: 56px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+#bemvindo h1 span {
+  color: #f82249;
+}
+
+@media (max-width: 991px) {
+  #bemvindo h1 {
+    font-size: 34px;
+  }
+}
+
+#bemvindo p {
+  color: #015486;
+  font-weight: 700;
+  font-size: 23px;
+}
+
+@media (max-width: 991px) {
+  #bemvindo p {
+    font-size: 16px;
+  }
+}
+
+#bemvindo .play-btn {
+  width: 94px;
+  height: 94px;
+  background: radial-gradient(#f82249 50%, rgba(101, 111, 150, 0.15) 52%);
+  border-radius: 50%;
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+#bemvindo .play-btn::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-40%) translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 15px solid #fff;
+  z-index: 100;
+  transition: all 400ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+#bemvindo .play-btn:before {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+  -webkit-animation: pulsate-btn 2s;
+  animation: pulsate-btn 2s;
+  -webkit-animation-direction: forwards;
+  animation-direction: forwards;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: steps;
+  animation-timing-function: steps;
+  opacity: 1;
+  border-radius: 50%;
+  border: 2px solid rgba(163, 163, 163, 0.4);
+  top: -15%;
+  left: -15%;
+  background: rgba(198, 16, 0, 0);
+}
+
+#bemvindo .play-btn:hover::after {
+  border-left: 15px solid #f82249;
+  transform: scale(20);
+}
+
+#bemvindo .play-btn:hover::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-40%) translateY(-50%);
+  width: 0;
+  height: 0;
+  border: none;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 15px solid #fff;
+  z-index: 200;
+  -webkit-animation: none;
+  animation: none;
+  border-radius: 0;
+}
+
+/*WEBKITS E ANIMAÇOES PARA O FADEIN*/
+.fade-in-text {
+  animation: fadeIn linear 4s;
+  -webkit-animation: fadeIn linear 4s;
+  -moz-animation: fadeIn linear 4s;
+  -o-animation: fadeIn linear 4s;
+  -ms-animation: fadeIn linear 4s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/*--------------------------------------------------------------
+# navegar Section
+--------------------------------------------------------------*/
+#navegar {
+  position: relative;
+}
+
+#navegar h2 {
+  color: #015486 !important;
+}
+
+#navegar .divimg {
+  width: 100%;
+  height: 100vh;
+  background: url("hero-bg.jpg");
+  background-size: cover;
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  color: #fff;
+  padding: 60px 0 40px 0;
+}
+
+@media (min-width: 1024px) {
+  #navegar {
+    background-attachment: fixed;
+  }
+}
+#navegar .container {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  top: 0px;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 0 15px;
+}
+
+#navegar .escurecido {
+  bottom: 10vw;
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.8); /* Black w/opacity/see-through */
+  border: 3px solid #015486;
+  padding-top: 1%;
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-bottom: 1%;
+}
+
+#navegar .espacamento {
+  margin-bottom: 5%;
+}
+#navegar h2 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+#navegar h3 {
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+#navegar p {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #fff;
+}

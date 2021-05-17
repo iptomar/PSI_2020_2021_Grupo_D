@@ -11,3 +11,7 @@
 
   text-decoration: none;
 }
+
+.circulo-branco {
+  border-radius: 50%;
+}

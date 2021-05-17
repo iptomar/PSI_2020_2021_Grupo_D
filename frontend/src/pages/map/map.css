@@ -9,9 +9,25 @@
   top: 10px;
   position: absolute;
 }
-
 .grid-container {
   display: inline-grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 20px;
+}
+.form {
+  position: absolute;
+  top: 5vw;
+  bottom: 0;
+  left: 80vw;
+  right: 1vw;
+  padding-top: 1%;
+  padding-left: 1%;
+  padding-right: 1%;
+  padding-bottom: 1%;
+  bottom: 10vw; /*isto esta a 10 porque julgo que devia de existir por debaixo do upload das imagens, uma miniatura das mesmas em preview, deixei espaço para isso*/
+  z-index: 400;
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.6); /* Black w/opacity/see-through */
+  color: white;
+  border: 3px solid #a379c9;
 }

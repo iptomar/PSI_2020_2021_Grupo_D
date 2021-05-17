@@ -17,7 +17,7 @@ const Map = () => {
 
   //Constante que determina a altura e largura do mapa
   const containerStyle = {
-    width: "70vw",
+    width: "100vw",
     height: "100vh",
   };
 
@@ -34,9 +34,9 @@ const Map = () => {
   };
 
   //Evento para adicionar ou remover um marker
-  const onCoordChange = (marker) =>{
+  const onCoordChange = (marker) => {
     setCurrentMarker(marker);
-  }
+  };
 
   //Função que faz o load dos respectivos markers no load da pagina
   useEffect(() => {
