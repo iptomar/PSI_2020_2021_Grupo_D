@@ -10,3 +10,17 @@ h1 {
   color: #015486;
   font-size: 6rem !important;
 }
+
+.backoffice {
+  font-size: 15px;
+}
+
+.backoffice a {
+  text-decoration: none;
+  color: #015486;
+}
+
+.backoffice a:hover {
+  text-decoration: none;
+  color: #015486;
+}

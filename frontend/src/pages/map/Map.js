@@ -1,17 +1,12 @@
 import React from "react";
-import {
-  MapContainer,
-  TileLayer,
-  Marker,
-  Popup,
-} from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useState, useEffect } from "react";
 import Mapclick from "./MapClick";
 import services from "../../services";
 import ButtonForm from "../../components/button";
 import "./map.css";
 import logo from "../../assets/logo.png";
-import Form from '../../components/PostForm'
+import Form from "../../components/PostForm";
 
 const Map = () => {
   const center = {
@@ -20,7 +15,7 @@ const Map = () => {
   };
 
   const containerStyle = {
-    width: "70vw",
+    width: "100vw",
     height: "100vh",
   };
 
@@ -35,9 +30,9 @@ const Map = () => {
     setToggleForm(!toggleForm);
   };
 
-  const onCoordChange = (lat,lng) =>{
-    setCurrentMarker([{lat,lng}]);
-  }
+  const onCoordChange = (lat, lng) => {
+    setCurrentMarker([{ lat, lng }]);
+  };
 
   useEffect(() => {
     async function getPoints() {
@@ -54,39 +49,46 @@ const Map = () => {
   }, []);
 
   return (
-    <div className = "grid-container ">
-    <MapContainer
-      center={center}
-      zoom={7}
-      scrollWheelZoom={true}
-      style={containerStyle}
-    >
-      <TileLayer
-        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-      {toggleForm && <Mapclick onChange = {onCoordChange}/>}
+    <div className="grid-container ">
+      <MapContainer
+        center={center}
+        zoom={7}
+        scrollWheelZoom={true}
+        style={containerStyle}
+      >
+        <TileLayer
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        {toggleForm && <Mapclick onChange={onCoordChange} />}
 
-      {/* button */}
-      {!toggleForm && <div className="sembutton"><ButtonForm toggleForm={formToggle}/></div>}
-      {!toggleForm &&
-        markers.map((marker) => (
-          //aqui faz o render dos marcadores anteriores e os que sejam a clicar
-          <Marker key={marker._id} position={marker}>
-            <Popup>
-              <div>
-                {/*O state do selected markers tem toda a informaçao do marker por isso é so meter*/}
-                <h3>Historia aqui</h3>
-                <p1>{marker.desc}</p1>
-                <img src={logo} alt="" alignItems="center" />
-              </div>
-            </Popup>
-          </Marker>
-        ))}
-
-    </MapContainer>
-   {toggleForm && <div className = "form" ><Form coords = {currentMarker} toggleForm={formToggle} ></Form></div>}
-    </div> 
+        {/* button */}
+        {!toggleForm && (
+          <div className="sembutton">
+            <ButtonForm toggleForm={formToggle} />
+          </div>
+        )}
+        {!toggleForm &&
+          markers.map((marker) => (
+            //aqui faz o render dos marcadores anteriores e os que sejam a clicar
+            <Marker key={marker._id} position={marker}>
+              <Popup>
+                <div>
+                  {/*O state do selected markers tem toda a informaçao do marker por isso é so meter*/}
+                  <h3>Historia aqui</h3>
+                  <p1>{marker.desc}</p1>
+                  <img src={logo} alt="" alignItems="center" />
+                </div>
+              </Popup>
+            </Marker>
+          ))}
+      </MapContainer>
+      {toggleForm && (
+        <div className="form">
+          <Form coords={currentMarker} toggleForm={formToggle}></Form>
+        </div>
+      )}
+    </div>
   );
 };
 

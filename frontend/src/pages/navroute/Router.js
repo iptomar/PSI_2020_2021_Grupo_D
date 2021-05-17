@@ -1,10 +1,11 @@
 // react router
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // pages
-import Home from "../map/Map";
+//import Home from "../map/Map";
+import Home from "../landingpage/landingpage";
 import Error from "../error/error";
 import QuerAjudar from "../querajudar/querajudar";
-import Fundacao from "../fundacao/fundacao";
+import Mapa from "../map/Map";
 import Presidente from "../presidente/presidente";
 import Contactos from "../contactos/contactos";
 import Login from "../login/Login";
@@ -19,8 +20,8 @@ const ReactRouterSetup = () => {
         <Route exact path="/">
           <Home></Home>
         </Route>
-        <Route exact path="/fundacao">
-          <Fundacao></Fundacao>
+        <Route exact path="/mapa">
+          <Mapa></Mapa>
         </Route>
         <Route exact path="/querajudar">
           <QuerAjudar></QuerAjudar>

@@ -4,21 +4,26 @@ import { Link } from "react-router-dom";
 //import bootstrap
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 //import global do logo
-import logo_cut from "../../assets/logo_cut.png";
+import logo_cut_branco from "../../assets/logo_cut_branco.png";
 //CSS
 import "./navbar.css";
 
 const Navegbar = () => {
   return (
-    <Navbar bg="dark" variant="dark">
-      <Navbar.Brand href="/">
-        <span className="circulo-branco">
+    <Navbar
+      bg="dark"
+      variant="dark"
+      className="py-3"
+      style={{ fontSize: "20px" }}
+    >
+      <Navbar.Brand style={{ fontSize: "20px" }} href="/">
+        <span className="logoespaco">
           <img
             alt=""
-            src={logo_cut}
+            src={logo_cut_branco}
             width="30"
             height="30"
-            className="d-inline-block align-top"
+            className="d-inline-block align-top circulo-branco"
           />
         </span>{" "}
         Fundação Luiza Andaluz
@@ -31,7 +36,7 @@ const Navegbar = () => {
               Home
             </Link>
           </Nav.Link>
-          <NavDropdown title="A fundação" id="basic-nav-dropdown">
+          {/* <NavDropdown title="A fundação" id="basic-nav-dropdown">
             <NavDropdown.Item href="#section1">A intituição</NavDropdown.Item>
             <NavDropdown.Item href="#section2">Visão</NavDropdown.Item>
             <NavDropdown.Item href="#section3">Valores</NavDropdown.Item>
@@ -42,10 +47,10 @@ const Navegbar = () => {
               Plano atividades
             </NavDropdown.Item>
             <NavDropdown.Item href="#section7">Galeria</NavDropdown.Item>
-          </NavDropdown>
+          </NavDropdown> */}
           <Nav.Link>
-            <Link to="/querajudar" className="navText">
-              Quer Ajudar?
+            <Link to="/mapa" className="navText">
+              Mapa
             </Link>
           </Nav.Link>
           <Nav.Link>

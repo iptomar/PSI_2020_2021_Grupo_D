@@ -3,6 +3,10 @@ import { Form } from "react-bootstrap";
 import services from "../../services";
 import { Button } from "semantic-ui-react";
 
+import logo_cut from "../../assets/logo_cut.png";
+
+import "./Login.css";
+
 export default class Login extends Component {
   constructor(props) {
     super(props);
@@ -21,31 +25,40 @@ export default class Login extends Component {
   render() {
     const { email, password } = this.state;
     return (
-      <div className="container">
-        <Form onSubmit={(evt) => this.handleSubmit(evt)}>
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control
-              type="email"
-              placeholder="Enter email"
-              value={email}
-              onChange={(evt) => this.setState({ email: evt.target.value })}
-            />
-          </Form.Group>
-          <Form.Group controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(evt) => this.setState({ password: evt.target.value })}
-            />
-          </Form.Group>
-          <Button primary type="submit">
-            Login
-          </Button>
-        </Form>
-      </div>
+      <section id="login">
+        <div className="divimg"></div>
+        <div className="container">
+          <img src={logo_cut} alt="" />
+          <h1>Backoffice Login</h1>
+          <div className="textboxes">
+            <Form onSubmit={(evt) => this.handleSubmit(evt)}>
+              <Form.Group controlId="formBasicEmail">
+                <Form.Label>Email</Form.Label>
+                <Form.Control
+                  type="email"
+                  placeholder="Enter email"
+                  value={email}
+                  onChange={(evt) => this.setState({ email: evt.target.value })}
+                />
+              </Form.Group>
+              <Form.Group controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  placeholder="Password"
+                  value={password}
+                  onChange={(evt) =>
+                    this.setState({ password: evt.target.value })
+                  }
+                />
+              </Form.Group>
+              <Button primary type="submit">
+                Login
+              </Button>
+            </Form>
+          </div>
+        </div>
+      </section>
     );
   }
 }
