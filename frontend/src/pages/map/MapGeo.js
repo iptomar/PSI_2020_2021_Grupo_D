@@ -2,7 +2,6 @@ import React from "react";
 import { useState } from "react";
 import { Marker, Popup, useMapEvents } from "react-leaflet";
 
-//
 const MapGeo = () => {
   const [position, setPosition] = useState(null);
 
@@ -18,7 +17,7 @@ const MapGeo = () => {
   });
 
   //Retorno do html do marker
-  return position === null ? null : (
+  return position ? null : (
     <Marker position={position}>
       <Popup>You are here</Popup>
     </Marker>

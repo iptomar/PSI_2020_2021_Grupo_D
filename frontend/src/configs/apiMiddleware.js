@@ -12,6 +12,7 @@ export const request = (method, route, params) => {
       },
       ...(params && {
         ...(params.jsonData && { body: JSON.stringify(params.jsonData) }),
+        ...(params.formData && { body: params.formData }),
       }),
     })
       .then((res) => parseResponse(res))

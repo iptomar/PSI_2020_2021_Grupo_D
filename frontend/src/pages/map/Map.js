@@ -83,7 +83,7 @@ const Map = () => {
                   {/*O state do selected markers tem toda a informaçao do marker por isso é so meter*/}
                   <h3>Historia aqui</h3>
                   <p1>{marker.desc}</p1>
-                  <img src={logo} alt="" alignItems="center" />
+                  <img src={marker.image} alignItems="center" />
                 </div>
               </Popup>
             </Marker>
