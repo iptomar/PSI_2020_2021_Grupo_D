@@ -4,6 +4,15 @@ import { withRouter } from "react-router";
 import { Button } from "semantic-ui-react";
 import services from "../services";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+//notificaçoes
+const notify = () =>
+  toast.success("História submetida com sucesso!", {
+    position: toast.POSITION.BOTTOM_RIGHT,
+  });
+
 const MapForm = ({ marker, toggleForm }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -79,9 +88,11 @@ const MapForm = ({ marker, toggleForm }) => {
         primary
         type="submit"
         style={{ backgroundColor: "#a379c9", color: "white" }}
+        onClick={notify}
       >
         Submit
       </Button>
+      <ToastContainer />
     </Form>
   );
 };
