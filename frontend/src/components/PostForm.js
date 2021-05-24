@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import { Form, Col } from "react-bootstrap";
-import { withRouter } from "react-router";
 import { Button } from "semantic-ui-react";
-import services from "../services";
-
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import services from "../services";
 
 //notificaçoes
 const notify = () =>
@@ -38,8 +35,8 @@ const MapForm = ({ marker, toggleForm }) => {
 
     const formData = new FormData();
     formData.append("image", evt.target.files[0]);
-    setImage(formData)
-  }
+    setImage(formData);
+  };
 
   return (
     <Form onSubmit={(evt) => handleSubmit(evt)}>
@@ -94,10 +91,7 @@ const MapForm = ({ marker, toggleForm }) => {
 
       <Form.Group controlId="formImages">
         <Form.Label>Mostre-nos as suas Fotos!</Form.Label>
-        <Form.Control
-          type="file"
-          onChange={(e) => handleSelectedImage(e)}
-        />
+        <Form.Control type="file" onChange={(e) => handleSelectedImage(e)} />
       </Form.Group>
 
       <Button

@@ -29,8 +29,8 @@ exports.createStory = (req, res) => {
 exports.checkStory = (req, res) => {
   mapService
     .checkStory(req.params.id)
-    .then((data) => res.status(200).send(data))
-    .catch((error) => res.status(500).send(error.message));
+    .then((data) => res.status(200).json({data}))
+    .catch((error) => res.status(500).json(error));
 };
 
 //Função de controller que permite remover um marker pelo "map-service.js"

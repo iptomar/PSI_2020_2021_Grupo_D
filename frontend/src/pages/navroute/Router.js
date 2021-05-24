@@ -9,6 +9,7 @@ import Mapa from "../map/Map";
 import Presidente from "../presidente/presidente";
 import Contactos from "../contactos/contactos";
 import Login from "../login/Login";
+import Dashboard from "../backoffice/dashboard/Dashboard"
 
 import Navbar from "./navbar";
 
@@ -34,6 +35,9 @@ const ReactRouterSetup = () => {
         </Route>
         <Route exact path="/backoffice/login">
           <Login />
+        </Route>
+        <Route exact path="/backoffice">
+          <Dashboard />
         </Route>
         <Route path="*">
           <Error></Error>

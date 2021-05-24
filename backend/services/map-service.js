@@ -1,10 +1,9 @@
 const mongo = require("../configs/mongodb");
 const db = mongo.getDB();
 
-//Instancia do ObjectId
 const ObjectId = require("mongodb").ObjectID;
 
-//Query à base de dados que obtêm a coleção de "Stories"
+// Query à base de dados que obtêm a coleção de "Stories"
 exports.getStories = () => {
   return new Promise((resolve, reject) => {
     try {
@@ -18,7 +17,7 @@ exports.getStories = () => {
     }
   });
 };
-//Query à base de dados que obtêm a coleção de "stories-unchecked"
+// Query à base de dados que obtêm a coleção de "stories-unchecked"
 exports.getUncheckedStories = () => {
   return new Promise((resolve, reject) => {
     try {
@@ -33,7 +32,7 @@ exports.getUncheckedStories = () => {
   });
 };
 
-//Query à base de dados de inserção  que permite criar uma "story"
+// Query à base de dados de inserção  que permite criar uma "story"
 exports.createStory = (name, email, story, marker) => {
   return new Promise((resolve, reject) => {
     try {
@@ -47,7 +46,7 @@ exports.createStory = (name, email, story, marker) => {
   });
 };
 
-//Query à base de dados  que permite obter uma "story"
+// Aceita a historia submetida pelo o utilizador e passa a ser possivel observa-la no mapa
 exports.checkStory = (uid) => {
   return new Promise((resolve, reject) => {
     try {
@@ -82,6 +81,8 @@ exports.removeStory = (uid) => {
   });
 };
 
+// Atualiza a imagem da historia
+// TODO mete isto um array em vez de ser apoeas uma historia
 exports.updateStoryImage = (uid, file) => {
   return new Promise((resolve, reject) => {
     try {

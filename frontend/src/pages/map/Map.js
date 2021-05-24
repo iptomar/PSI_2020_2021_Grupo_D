@@ -5,7 +5,6 @@ import Mapclick from "./MapClick";
 import services from "../../services";
 import ButtonForm from "../../components/button";
 import "./map.css";
-import logo from "../../assets/logo.png";
 import Form from "../../components/PostForm";
 
 //Constante que determina o centro do mapa
@@ -82,8 +81,16 @@ const Map = () => {
                 <div>
                   {/*O state do selected markers tem toda a informaçao do marker por isso é so meter*/}
                   <h3>Historia aqui</h3>
-                  <p1>{marker.desc}</p1>
-                  <img src={marker.image} alignItems="center" />
+                  <p1>{marker.story}</p1>
+                  <img
+                    src={marker.image}
+                    alignItems="center"
+                    style={{
+                      width: "auto",
+                      maxWidth: "300px",
+                      maxHeight: "300px",
+                    }}
+                  />
                 </div>
               </Popup>
             </Marker>
