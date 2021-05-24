@@ -1,5 +1,5 @@
-//Conecção e instância à base de dados
-const db = require("../configs/mongodb").getDB();
+const mongo = require("../configs/mongodb");
+const db = mongo.getDB();
 
 //Instancia do ObjectId
 const ObjectId = require("mongodb").ObjectID;
@@ -81,3 +81,15 @@ exports.removeStory = (uid) => {
     }
   });
 };
+
+exports.updateStoryImage = (uid, file) => {
+  return new Promise((resolve, reject) => {
+    try {
+      mongo.uploadFile(ObjectId(uid), file.path, file.type)
+        .then((res) => resolve(res))
+        .catch((err) => reject(err));
+    } catch (e) {
+      reject(e)
+    }
+  })
+}

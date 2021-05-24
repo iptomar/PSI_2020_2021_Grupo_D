@@ -17,16 +17,29 @@ const MapForm = ({ marker, toggleForm }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [story, setStory] = useState("");
-  //TODO: image here, or image function
+  const [image, setImage] = useState({});
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
 
     services.map
       .createStory({ name, email, story, marker })
-      .then((res) => console.log(res))
+      .then((res) => {
+        services.map
+          .updateStoryImage(res._id, image)
+          .then((r) => console.log(r))
+          .catch((err) => console.error(err));
+      })
       .catch((err) => console.error(err));
   };
+
+  const handleSelectedImage = (evt) => {
+    evt.preventDefault();
+
+    const formData = new FormData();
+    formData.append("image", evt.target.files[0]);
+    setImage(formData)
+  }
 
   return (
     <Form onSubmit={(evt) => handleSubmit(evt)}>
@@ -80,8 +93,11 @@ const MapForm = ({ marker, toggleForm }) => {
       </Form.Group>
 
       <Form.Group controlId="formImages">
-        <Form.Label>Mostre-nos as suas Fotos</Form.Label>
-        <Form.File id="imageFile" multiple />
+        <Form.Label>Mostre-nos as suas Fotos!</Form.Label>
+        <Form.Control
+          type="file"
+          onChange={(e) => handleSelectedImage(e)}
+        />
       </Form.Group>
 
       <Button

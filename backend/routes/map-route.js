@@ -1,4 +1,3 @@
-//Inclusão do modulo express com o método Router() para instância do mesmo
 const router = require("express").Router();
 
 //Inclusão e instância do serviço map-controller.js
@@ -12,6 +11,8 @@ router.get("/stories-unchecked", mapController.getUncheckedStories);
 
 //Associar routes da ligação ao controller de maps através de http Post
 router.post("/story/create", mapController.createStory);
+
+router.put("/story/updateimg/:id", mapController.updateStoryImage);
 
 //Associar routes da ligação ao controller de maps através de http put
 router.put("/story-check/:id", mapController.checkStory);
