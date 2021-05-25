@@ -1,16 +1,17 @@
+import "./Login.css";
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom"
 import { Form } from "react-bootstrap";
 import services from "../../services";
 import { Button } from "semantic-ui-react";
-
 import logo_cut from "../../assets/logo_cut.png";
-
-import "./Login.css";
+import AuthContext from "../../configs/authContext";
 
 export default class Login extends Component {
+  static contextType = AuthContext;
   constructor(props) {
     super(props);
-    this.state = { email: "some@some.some", password: "some" };
+    this.state = { email: "some@some.some", password: "some", redirect: false };
   }
 
   handleSubmit(evt) {
@@ -18,16 +19,20 @@ export default class Login extends Component {
 
     services.user
       .login(this.state)
-      .then((res) => console.log(res))
+      .then((res) => {
+        this.context.login(res);
+        this.setState({ redirect: true })
+      })
       .catch((e) => console.error(e));
   }
 
   render() {
-    const { email, password } = this.state;
+    const { email, password, redirect } = this.state;
     return (
       <section id="login">
         <div className="divimg"></div>
         <div className="container">
+          {redirect && <Redirect to="/backoffice/dashboard" />}
           <img src={logo_cut} alt="" />
           <h1>Backoffice Login</h1>
           <div className="textboxes">

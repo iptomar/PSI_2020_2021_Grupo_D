@@ -1,6 +1,7 @@
 const serverURL = "http://localhost:3001";
 
 export const request = (method, route, params) => {
+  let currentUser = sessionStorage.getItem("user");
   return new Promise((resolve, reject) => {
     let serviceUrl = serverURL + route;
 
@@ -8,7 +9,10 @@ export const request = (method, route, params) => {
       method,
       headers: {
         ...(params &&
-          params.jsonData && { "Content-Type": "application/json;charset=utf-8" }),
+          params.jsonData && {
+            "Content-Type": "application/json;charset=utf-8",
+          }),
+        ...(currentUser && { Authorization: JSON.parse(currentUser).token }),
       },
       ...(params && {
         ...(params.jsonData && { body: JSON.stringify(params.jsonData) }),

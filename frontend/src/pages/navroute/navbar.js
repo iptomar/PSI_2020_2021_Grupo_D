@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import AuthContext from "../../configs/authContext";
 
 //import bootstrap
-import { Navbar, Nav, NavDropdown } from "react-bootstrap";
+import { Navbar, Nav, NavLink, Button } from "react-bootstrap";
 //import global do logo
 import logo_cut_branco from "../../assets/logo_cut_branco.png";
 //CSS
 import "./navbar.css";
 
 const Navegbar = () => {
+  const auth = useContext(AuthContext);
   return (
     <Navbar
       bg="dark"
@@ -61,11 +63,27 @@ const Navegbar = () => {
         </Nav>
         {/* talvez adicionar um icone de um telefone ou voltar a por a esquerda porque a direita ta muito a parte */}
         <Nav className="justify-content-end">
-          <Nav.Link>
-            <Link to="/contactos" className="navText">
-              Contactos
-            </Link>
-          </Nav.Link>
+          {auth.user ? (
+            <Nav.Link
+              as={NavLink}
+              to="/"
+              onClick={() => auth.logout()}
+              style={{
+                color: "white",
+                border: "1px solid",
+                borderRadius: "6px",
+                backgroundColor: "#2F8AD7",
+              }}
+            >
+              Logout
+            </Nav.Link>
+          ) : (
+            <Nav.Link>
+              <Link to="/contactos" className="navText">
+                Contactos
+              </Link>
+            </Nav.Link>
+          )}
         </Nav>
       </Navbar.Collapse>
     </Navbar>

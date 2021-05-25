@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // pages
 //import Home from "../map/Map";
@@ -9,11 +9,12 @@ import Mapa from "../map/Map";
 import Presidente from "../presidente/presidente";
 import Contactos from "../contactos/contactos";
 import Login from "../login/Login";
-import Dashboard from "../backoffice/dashboard/Dashboard"
-
+import Dashboard from "../backoffice/dashboard/Dashboard";
 import Navbar from "./navbar";
+import AuthContext from "../../configs/authContext";
 
 const ReactRouterSetup = () => {
+  const auth = useContext(AuthContext);
   return (
     <Router>
       <Navbar></Navbar>
@@ -36,11 +37,15 @@ const ReactRouterSetup = () => {
         <Route exact path="/backoffice/login">
           <Login />
         </Route>
-        <Route exact path="/backoffice">
-          <Dashboard />
+        <Route exact path="/backoffice/dashboard">
+          {auth.user ? (
+            <Dashboard />
+          ) : (
+            <Error code={401} msg={"Unauthorized"} />
+          )}
         </Route>
         <Route path="*">
-          <Error></Error>
+          <Error code={404} msg={"Page not found"} />
         </Route>
       </Switch>
     </Router>
