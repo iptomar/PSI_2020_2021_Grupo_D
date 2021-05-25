@@ -84,6 +84,7 @@ const Navegbar = () => {
               </Link>
             </Nav.Link>
           )}
+          <div id="google_translate_element"></div>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

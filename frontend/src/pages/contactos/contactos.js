@@ -3,6 +3,7 @@ import React from "react";
 import logo_cut from "../../assets/logo.png";
 import "./contactos.css";
 import Login from "../login/Login";
+import { Button } from 'react-bootstrap';
 
 const contactos = () => {
   return (
@@ -18,6 +19,9 @@ const contactos = () => {
         <br></br>
         <img src={logo_cut} alt="" />
       </center>
+      <div>
+        <Button onClick={() => eval("QreditRoll.start()")}>Créditos</Button>
+      </div>
     </div>
   );
 };

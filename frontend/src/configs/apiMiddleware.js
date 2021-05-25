@@ -1,4 +1,4 @@
-const serverURL = "http://localhost:3001";
+const serverURL = "https://localhost:3001";
 
 export const request = (method, route, params) => {
   let currentUser = sessionStorage.getItem("user");
