@@ -6,6 +6,8 @@ import services from "../../services";
 import ButtonForm from "../../components/button";
 import "./map.css";
 import Form from "../../components/PostForm";
+import L from 'leaflet';
+import iconMarker from "../../assets/Icon_amarelo.png";
 
 //Constante que determina o centro do mapa
 const Map = () => {
@@ -52,6 +54,15 @@ const Map = () => {
     getPoints();
   }, []);
 
+  const L = require('leaflet');
+  const icon_marker = L.icon({
+    iconUrl: iconMarker,
+    iconSize: [24, 24],
+    shadowUrl: null,
+    shadowSize: null,
+    shadowAnchor: null
+  });
+
   //Retorno do html do mapa
   return (
     <div className="grid-container ">
@@ -76,7 +87,7 @@ const Map = () => {
         {!toggleForm &&
           markers.map((marker) => (
             //aqui faz o render dos marcadores anteriores e os que sejam a clicar
-            <Marker key={marker._id} position={marker}>
+            <Marker icon={icon_marker} key={marker._id} position={marker}>
               <Popup>
                 <div>
                   {/*O state do selected markers tem toda a informaçao do marker por isso é so meter*/}

@@ -1,0 +1,26 @@
+LuizaAndaLuz Centro de Conhecimento
+                            
+/* Equipa */
+                        
+Realizado por:
+
+João Veríssimo
+Ruben Salgado
+João Coelho
+Tiago Murteira
+Tiago Correia
+João Ramos
+Rodrigo Pereira
+António Valério
+Miguel Esteves
+
+Engenharia Informática
+
+UC: PSI
+
+
+/* Agradecimentos */
+
+Professor Paulo Santos
+
+Github dos créditos: https://github.com/Q42/QreditRoll

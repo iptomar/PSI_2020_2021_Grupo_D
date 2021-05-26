@@ -56,6 +56,7 @@ const MapForm = ({ marker, toggleForm }) => {
           className="my-auto"
           placeholder="Seu Nome"
           onChange={(e) => setName(e.target.value)}
+          maxlength="35"
         />
       </Form.Group>
 
@@ -65,6 +66,7 @@ const MapForm = ({ marker, toggleForm }) => {
           type="email"
           placeholder="Email"
           onChange={(e) => setEmail(e.target.value)}
+          maxlength="40"
         />
         <Form.Text>Não vamos partilhar o seu email com mais ninguem.</Form.Text>
       </Form.Group>
@@ -75,6 +77,7 @@ const MapForm = ({ marker, toggleForm }) => {
           as="textarea"
           rows={5}
           onChange={(e) => setStory(e.target.value)}
+          maxlength="500"
         />
       </Form.Group>
 
