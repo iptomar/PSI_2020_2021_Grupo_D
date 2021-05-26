@@ -6,7 +6,6 @@ import services from "../../services";
 import ButtonForm from "../../components/button";
 import "./map.css";
 import Form from "../../components/PostForm";
-import L from 'leaflet';
 import iconMarker from "../../assets/Icon_amarelo.png";
 
 //Constante que determina o centro do mapa

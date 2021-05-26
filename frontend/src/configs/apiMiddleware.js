@@ -1,6 +1,7 @@
-const serverURL = "https://localhost:3001";
+const serverURL = process.env.REACT_APP_NODE_URI;
 
 export const request = (method, route, params) => {
+  console.log("s: "+serverURL)
   let currentUser = sessionStorage.getItem("user");
   return new Promise((resolve, reject) => {
     let serviceUrl = serverURL + route;
