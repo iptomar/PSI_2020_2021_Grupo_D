@@ -2,7 +2,6 @@ import React from "react";
 
 import logo_cut from "../../assets/logo.png";
 import "./contactos.css";
-import Login from "../login/Login";
 
 const contactos = () => {
   return (

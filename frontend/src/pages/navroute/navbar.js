@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import AuthContext from "../../configs/authContext";
 
 //import bootstrap
-import { Navbar, Nav, NavLink, Button } from "react-bootstrap";
+import { Navbar, Nav, NavLink } from "react-bootstrap";
 //import global do logo
 import logo_cut_branco from "../../assets/logo_cut_branco.png";
 //CSS

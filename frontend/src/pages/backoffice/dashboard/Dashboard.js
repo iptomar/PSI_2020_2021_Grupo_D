@@ -16,33 +16,34 @@ export default class Dashboard extends Component {
     services.map
       .getUncheckedStories()
       .then((res) => {
-        this.setState({ stories: res });
+        this.setState({ stories: res }, () => console.log(this.state.stories));
       })
       .catch((e) => console.error(e));
-  }
-
-  notify() {
-    toast.success("História submetida com sucesso!", {
-      position: toast.POSITION.BOTTOM_RIGHT,
-    });
   }
 
   submitStory(evt) {
     evt.preventDefault();
 
     services.map
-      .checkStory(evt.target.parentNode.id)
+      .checkStory(evt.target.parentElement.id)
       .then((_) => {
         toast.success("História verificada com sucesso!", {
           position: toast.POSITION.BOTTOM_RIGHT,
-        }
-      )}
-      )
+        });
+        this.state.stories.map((story, i) => {
+          if (story._id == evt.target.parentElement.id) {
+            let arr = this.state.stories;
+            arr.splice(i, 1);
+            this.setState({ stories: arr });
+          }
+        });
+      })
       .catch((e) => {
         toast.error("Ocorreu um erro!", {
           position: toast.POSITION.BOTTOM_RIGHT,
         });
-        console.error(e)});
+        console.error(e);
+      });
   }
 
   render() {
@@ -67,7 +68,7 @@ export default class Dashboard extends Component {
                     style={{
                       width: "auto",
                       maxWidth: "700px",
-                      maxHeight: "400px",
+                      maxHeight: "300px",
                     }}
                     src={story.image}
                   />

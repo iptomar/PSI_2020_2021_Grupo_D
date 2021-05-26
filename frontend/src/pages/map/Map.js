@@ -85,6 +85,7 @@ const Map = () => {
                   <img
                     src={marker.image}
                     alignItems="center"
+                    alt={marker.username}
                     style={{
                       width: "auto",
                       maxWidth: "300px",
