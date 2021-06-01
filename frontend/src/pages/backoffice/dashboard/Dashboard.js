@@ -16,9 +16,9 @@ export default class Dashboard extends Component {
     services.map
       .getUncheckedStories()
       .then((res) => {
-        this.setState({ stories: res }, () => console.log(this.state.stories));
+        this.setState({ stories: res });
       })
-      .catch((e) => console.error(e));
+      .catch((_) => console.error("erro a receber as historias"));
   }
 
   submitStory(evt) {
@@ -38,11 +38,11 @@ export default class Dashboard extends Component {
           }
         });
       })
-      .catch((e) => {
+      .catch((_) => {
         toast.error("Ocorreu um erro!", {
           position: toast.POSITION.BOTTOM_RIGHT,
         });
-        console.error(e);
+        console.error("erro a verificar a historia");
       });
   }
 

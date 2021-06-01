@@ -28,7 +28,7 @@ exports.createStory = (req, res) => {
 //Função de controller que permite ir buscar os dados de um marker ao "map-service.js"
 exports.checkStory = (req, res) => {
   mapService
-    .checkStory(req.params.id)
+    .checkStory(req.params.id, req.client)
     .then((data) => res.status(200).json({data}))
     .catch((error) => res.status(500).json(error));
 };

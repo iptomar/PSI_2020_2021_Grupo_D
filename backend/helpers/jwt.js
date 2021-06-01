@@ -6,7 +6,7 @@ exports.createToken = (payload) => {
     const options = { expiresIn: "100h", issuer: "hollyLeaver" };
     jwt.sign(payload, key, options, (error, token) => {
       if (error) reject(error);
-      else resolve({ token, ...payload });
+      else resolve({ token });
     });
   });
 };

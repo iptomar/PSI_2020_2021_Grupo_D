@@ -46,8 +46,8 @@ const Map = () => {
         .then((points) => {
           setMarkers(points);
         })
-        .catch((e) => {
-          console.error(e);
+        .catch((_) => {
+          console.error("error loading points");
         });
     }
     getPoints();

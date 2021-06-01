@@ -24,10 +24,9 @@ const MapForm = ({ marker, toggleForm }) => {
       .then((res) => {
         services.map
           .updateStoryImage(res._id, image)
-          .then((r) => console.log(r))
-          .catch((err) => console.error(err));
+          .catch((_) => console.error("error inserting image"));
       })
-      .catch((err) => console.error(err));
+      .catch((_) => console.error("error creating story"));
   };
 
   const handleSelectedImage = (evt) => {

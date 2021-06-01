@@ -1,5 +1,6 @@
 const mongo = require("../configs/mongodb");
 const db = mongo.getDB();
+const userService = require("./user-service");
 
 const ObjectId = require("mongodb").ObjectID;
 
@@ -47,17 +48,22 @@ exports.createStory = (name, email, story, marker) => {
 };
 
 // Aceita a historia submetida pelo o utilizador e passa a ser possivel observa-la no mapa
-exports.checkStory = (uid) => {
+exports.checkStory = (id, userId) => {
   return new Promise((resolve, reject) => {
     try {
       db.collection("stories-unchecked")
-        .findOne({ _id: ObjectId(uid) })
+        .findOne({ _id: ObjectId(id) })
         .then((story) => {
           if (!story) reject(new Error("no story"));
           this.removeStory(story._id);
           db.collection("stories")
             .insertOne(story)
-            .then(() => resolve("story checked"))
+            .then(() => {
+              userService
+                .addCheckedStory(ObjectId(userId), id)
+                .then((_) => resolve("story checked"))
+                .catch((e) => reject(e.message));
+            })
             .catch((e) => reject(e.message));
         })
         .catch((err) => reject(err));
@@ -86,11 +92,12 @@ exports.removeStory = (uid) => {
 exports.updateStoryImage = (uid, file) => {
   return new Promise((resolve, reject) => {
     try {
-      mongo.uploadFile(ObjectId(uid), file.path, file.type)
+      mongo
+        .uploadFile(ObjectId(uid), file.path, file.type)
         .then((res) => resolve(res))
         .catch((err) => reject(err));
     } catch (e) {
-      reject(e)
+      reject(e);
     }
-  })
-}
+  });
+};

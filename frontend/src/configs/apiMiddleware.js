@@ -1,7 +1,6 @@
 const serverURL = process.env.REACT_APP_NODE_URI;
 
 export const request = (method, route, params) => {
-  console.log("s: "+serverURL)
   let currentUser = sessionStorage.getItem("user");
   return new Promise((resolve, reject) => {
     let serviceUrl = serverURL + route;
@@ -23,7 +22,6 @@ export const request = (method, route, params) => {
       .then((res) => parseResponse(res))
       .then((data) => resolve(data))
       .catch((err) => {
-        console.error(`api middle error ${method} ${route}:\n ${err}`);
         reject(err);
       });
   });
@@ -34,7 +32,6 @@ const parseResponse = (response) =>
     if (response.ok) {
       resolve(response.json());
     } else {
-      console.error("Parse response reject");
       reject(response.text());
     }
   });

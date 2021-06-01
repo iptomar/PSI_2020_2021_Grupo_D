@@ -23,7 +23,7 @@ export default class Login extends Component {
         this.context.login(res);
         this.setState({ redirect: true })
       })
-      .catch((e) => console.error(e));
+      .catch((_) => console.error("erro a realizar o login"));
   }
 
   render() {

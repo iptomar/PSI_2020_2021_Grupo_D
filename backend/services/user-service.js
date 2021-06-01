@@ -12,7 +12,7 @@ exports.register = (email, rawPassword) => {
         .then(() => resolve())
         .catch((e) => reject(e));
     } catch (e) {
-      console.error(e)
+      console.error(e);
       reject(e);
     }
   });
@@ -33,7 +33,21 @@ exports.authenticate = (email, rawPassword) => {
         })
         .catch((e) => reject(e));
     } catch (e) {
-      console.error(e)
+      console.error(e);
+      reject(e);
+    }
+  });
+};
+
+exports.addCheckedStory = (userUID, storyId) => {
+  return new Promise((resolve, reject) => {
+    try {
+      db.collection("users")
+        .updateOne({ _id: userUID }, { $push: { aprovedStories: storyId } })
+        .then((res) => resolve(res.result))
+        .catch((e) => reject(e));
+    } catch (e) {
+      console.error(e);
       reject(e);
     }
   });
