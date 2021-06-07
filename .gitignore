@@ -38,3 +38,5 @@ yarn-error.log*
 # dependencies
 backend/node_modules/
 backend/package-lock.json
+
+.env
