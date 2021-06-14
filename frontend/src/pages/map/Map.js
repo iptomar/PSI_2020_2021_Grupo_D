@@ -7,7 +7,7 @@ import ButtonForm from "../../components/button";
 import "./map.css";
 import Form from "../../components/PostForm";
 import iconMarker from "../../assets/Icon_amarelo.png";
-
+import { Button, Dimmer, Loader } from "semantic-ui-react";
 //Constante que determina o centro do mapa
 const Map = () => {
   const center = {
@@ -28,6 +28,7 @@ const Map = () => {
 
   const [currentMarker, setCurrentMarker] = useState([0.0, 0.0]);
 
+  const [dimmer, setDimmer] = useState(true);
   //Evento para display do formulario de submissão de novo marker
   const formToggle = () => {
     setToggleForm(!toggleForm);
@@ -45,6 +46,7 @@ const Map = () => {
         .getStories()
         .then((points) => {
           setMarkers(points);
+          setDimmer(false);
         })
         .catch((_) => {
           console.error("error loading points");
@@ -71,6 +73,9 @@ const Map = () => {
         scrollWheelZoom={true}
         style={containerStyle}
       >
+        <Dimmer active={dimmer}>
+          <Loader content="Loading" size="large" />
+        </Dimmer>
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -92,6 +97,7 @@ const Map = () => {
                   {/*O state do selected markers tem toda a informaçao do marker por isso é so meter*/}
                   <h3>Historia aqui</h3>
                   <p1>{marker.story}</p1>
+                  <br></br>
                   <img
                     src={marker.image}
                     alignItems="center"
@@ -101,12 +107,13 @@ const Map = () => {
                       maxWidth: "300px",
                       maxHeight: "300px",
                     }}
-                  />
+                  /> 
                 </div>
               </Popup>
             </Marker>
           ))}
       </MapContainer>
+
       {toggleForm && (
         <div className="form">
           <Form marker={currentMarker} toggleForm={formToggle}></Form>
