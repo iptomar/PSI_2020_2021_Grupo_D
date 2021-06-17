@@ -15,3 +15,21 @@
 .circulo-branco {
   border-radius: 50%;
 }
+
+body {
+  top: 0px !important; 
+}
+
+.goog-logo-link {
+  display:none !important;
+} 
+    
+.goog-te-gadget {
+  color: transparent !important;
+  position: relative;
+  top: 10px;
+}
+
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+} 
