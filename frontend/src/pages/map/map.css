@@ -5,7 +5,7 @@
 
 .sembutton {
   z-index: 400;
-  right: -1px;
+  right: 20px;
   top: 10px;
   position: absolute;
 }
@@ -27,7 +27,12 @@
   bottom: 10vw; /*isto esta a 10 porque julgo que devia de existir por debaixo do upload das imagens, uma miniatura das mesmas em preview, deixei espaço para isso*/
   z-index: 400;
   background-color: rgb(0, 0, 0); /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.6); /* Black w/opacity/see-through */
+  background-color: rgba(0, 0, 0, 0.8); /* Black w/opacity/see-through */
   color: white;
-  border: 3px solid #a379c9;
+  border: 3px solid #ffb81d;
+}
+
+.sembutton button {
+  background-color: #ffb81d !important;
+  color: #253746 !important;
 }

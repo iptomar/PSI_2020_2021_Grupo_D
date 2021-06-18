@@ -24,7 +24,7 @@
   bottom: 10vw;
   background-color: rgb(0, 0, 0); /* Fallback color */
   background-color: rgba(0, 0, 0, 0.6); /* Black w/opacity/see-through */
-  border: 3px solid #015486;
+  border: 3px solid #ffb81d;
 }
 
 #login .textboxes {
@@ -33,4 +33,9 @@
   padding-right: 35%;
   color: white;
   font-size: 20px;
+}
+
+#login button {
+  background-color: #ffb81d !important;
+  color: #253746 !important;
 }

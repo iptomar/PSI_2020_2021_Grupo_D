@@ -5,7 +5,9 @@ import AuthContext from "../../configs/authContext";
 //import bootstrap
 import { Navbar, Nav, NavLink } from "react-bootstrap";
 //import global do logo
-import logo_cut_branco from "../../assets/logo_cut_branco.png";
+import logo from "../../assets/Icon_amarelo.png";
+import logo_letras from "../../assets/logo_letras.png";
+
 //CSS
 import "./navbar.css";
 
@@ -13,22 +15,27 @@ const Navegbar = () => {
   const auth = useContext(AuthContext);
   return (
     <Navbar
-      bg="dark"
       variant="dark"
-      className="py-3"
+      className="py-3 backcolor-nav"
       style={{ fontSize: "20px" }}
     >
       <Navbar.Brand style={{ fontSize: "20px" }} href="/">
         <span className="logoespaco">
           <img
             alt=""
-            src={logo_cut_branco}
+            src={logo}
             width="30"
             height="30"
-            className="d-inline-block align-top circulo-branco"
+            className="d-inline-block align-top"
           />
-        </span>{" "}
-        Fundação Luiza Andaluz Centro de Conhecimento
+        </span>
+        <img
+          alt=""
+          src={logo_letras}
+          width="150"
+          height="30"
+          className="d-inline-block align-top"
+        />{" "}
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
@@ -56,8 +63,8 @@ const Navegbar = () => {
             </Link>
           </Nav.Link>
           <Nav.Link>
-            <Link to="/presidente" className="navText">
-              Presidente
+            <Link to="/contactos" className="navText">
+              Contactos
             </Link>
           </Nav.Link>
         </Nav>
@@ -78,11 +85,7 @@ const Navegbar = () => {
               Logout
             </Nav.Link>
           ) : (
-            <Nav.Link>
-              <Link to="/contactos" className="navText">
-                Contactos
-              </Link>
-            </Nav.Link>
+            <Nav.Link></Nav.Link>
           )}
           <div id="google_translate_element"></div>
         </Nav>

@@ -1,5 +1,16 @@
 /* arranjar cor dos navlinks */
 
+.logoespaco {
+  margin-right: 0.8rem;
+}
+
+.navbar-brand .letras {
+  width: 150px;
+  /* put value of image height as your need */
+  float: left;
+  margin-right: 7px;
+}
+
 .navText {
   color: rgba(255, 255, 255, 0.5) !important;
 
@@ -12,18 +23,19 @@
   text-decoration: none;
 }
 
-.circulo-branco {
-  border-radius: 50%;
+.backcolor-nav {
+  background-color: #253746 !important;
 }
 
+/*isto devia ser mudado, é uma nuke global. ta aqui porque quando mudas a tradução aparece uma barra branca em cima*/
 body {
-  top: 0px !important; 
+  top: 0px !important;
 }
 
 .goog-logo-link {
-  display:none !important;
-} 
-    
+  display: none !important;
+}
+
 .goog-te-gadget {
   color: transparent !important;
   position: relative;
@@ -32,4 +44,4 @@ body {
 
 .goog-te-banner-frame.skiptranslate {
   display: none !important;
-} 
+}

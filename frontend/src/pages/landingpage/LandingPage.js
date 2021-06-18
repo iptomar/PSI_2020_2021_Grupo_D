@@ -1,16 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-//import Fader from "./fader";
-
-import logo_cut from "../../assets/logo.png";
 import "./landingpage.css";
 
 export default class landingpage extends React.Component {
-
   render() {
     return (
-
       <div className="tudo">
         <section id="bemvindo">
           <div className="divimg"></div>
@@ -18,23 +13,23 @@ export default class landingpage extends React.Component {
             <h1 class="mb-4 pb-0">
               Bem Vindo ao<span> mapa </span>interativo da{" "}
               <span>Fundação Luiza Andaluz </span>Centro de Conhecimento
-          </h1>
+            </h1>
             <Link to="/mapa">
               <a class="play-btn mb-4"></a>
             </Link>
             <p class="mb-4 pb-0">
-              <span style={{ color: "#f82249" }}>Clique</span> para ir para o
-            Mapa!
-          </p>
+              <span style={{ color: "#FFB81D" }}>Clique</span> para ir para o
+              Mapa!
+            </p>
             <br />
             <p class="mb-4 pb-0 ">
-              <span style={{ color: "#f82249" }}>Novo no website? </span>Deslize
-            para baixo ou clique{" "}
+              <span style={{ color: "#FFB81D" }}>Novo no website? </span>Deslize
+              para baixo ou clique{" "}
               <a href="#navegar">
-                <span style={{ color: "#f82249" }}>Aqui</span>
+                <span style={{ color: "#FFB81D" }}>Aqui</span>
               </a>{" "}
-            para descobrir como navegar o mapa.
-          </p>
+              para descobrir como navegar o mapa.
+            </p>
           </div>
         </section>
 
@@ -46,61 +41,58 @@ export default class landingpage extends React.Component {
                 <div class="col-lg-12 espacamento">
                   <h1>
                     Como navegar o nosso{" "}
-                    <span style={{ color: "#f82249" }}>Mapa Interativo</span>?
-                </h1>
+                    <span style={{ color: "#FFB81D" }}>Mapa Interativo</span>?
+                  </h1>
                   <p>
-                    Pode consultar as diferentes histórias clicando nos pontos do
-                    mapa. Cada ponto correspondente a localização da história.
-                    Clique para ver detalhes de uma história.
-                </p>
+                    Pode consultar as diferentes histórias clicando nos pontos
+                    do mapa. Cada ponto correspondente a localização da
+                    história. Clique para ver detalhes de uma história.
+                  </p>
                 </div>
                 <div class="col-lg-6">
                   <h2>
                     Registar a sua{" "}
-                    <span style={{ color: "#f82249" }}>História</span>
+                    <span style={{ color: "#FFB81D" }}>História</span>
                   </h2>
                   <p>
                     Para registar a sua história,{" "}
-                    <span style={{ color: "#f82249" }}>
+                    <span style={{ color: "#FFB81D" }}>
                       clique no botão "adicionar história"
-                  </span>{" "}
-                  no canto superior direito. De seguida,{" "}
-                    <span style={{ color: "#f82249" }}>
+                    </span>{" "}
+                    no canto superior direito. De seguida,{" "}
+                    <span style={{ color: "#FFB81D" }}>
                       preencha o formulário
-                  </span>{" "}
-                  com os seus dados e histórias. Pode colocar{" "}
-                    <span style={{ color: "#f82249" }}>
+                    </span>{" "}
+                    com os seus dados e histórias. Pode colocar{" "}
+                    <span style={{ color: "#FFB81D" }}>
                       fotografias ou vídeos
-                  </span>{" "}
-                  que tenha das suas histórias ou relacionados.{" "}
-                    <span style={{ color: "#f82249" }}>Contribua</span> para esta
-                  memorabilia da{" "}
-                    <span style={{ color: "#f82249" }}>
+                    </span>{" "}
+                    que tenha das suas histórias ou relacionados.{" "}
+                    <span style={{ color: "#FFB81D" }}>Contribua</span> para
+                    esta memorabilia da{" "}
+                    <span style={{ color: "#FFB81D" }}>
                       Fundação Luiza Andaluz
-                  </span>
-                  . Ajude-nos a{" "}
-                    <span style={{ color: "#f82249" }}>imortalizar</span> aqui as
-                  suas histórias e experiências!
-                </p>
+                    </span>
+                    . Ajude-nos a{" "}
+                    <span style={{ color: "#FFB81D" }}>imortalizar</span> aqui
+                    as suas histórias e experiências!
+                  </p>
                 </div>
                 <div class="col-lg-6">
                   <h2>
-                    Alguma <span style={{ color: "#f82249" }}>dúvida</span>?
-                </h2>
-                  
-                <p>
-                    Gosta do nosso site? Deixe o seu feedback! Ideias e sugestões
-                    também são bem vindas.
-                </p>
+                    Alguma <span style={{ color: "#FFB81D" }}>dúvida</span>?
+                  </h2>
+
+                  <p>
+                    Gosta do nosso site? Deixe o seu feedback! Ideias e
+                    sugestões também são bem vindas.
+                  </p>
                 </div>
               </div>
             </div>
           </div>
         </section>
-
       </div>
     );
-
-  };
-
+  }
 }

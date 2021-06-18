@@ -1,10 +1,10 @@
 import "./Login.css";
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom"
+import { Redirect } from "react-router-dom";
 import { Form } from "react-bootstrap";
 import services from "../../services";
 import { Button } from "semantic-ui-react";
-import logo_cut from "../../assets/logo_cut.png";
+import logo_cut from "../../assets/Icon_amarelo.png";
 import AuthContext from "../../configs/authContext";
 
 export default class Login extends Component {
@@ -21,7 +21,7 @@ export default class Login extends Component {
       .login(this.state)
       .then((res) => {
         this.context.login(res);
-        this.setState({ redirect: true })
+        this.setState({ redirect: true });
       })
       .catch((_) => console.error("erro a realizar o login"));
   }
@@ -33,7 +33,7 @@ export default class Login extends Component {
         <div className="divimg"></div>
         <div className="container">
           {redirect && <Redirect to="/backoffice/dashboard" />}
-          <img src={logo_cut} alt="" />
+          <img src={logo_cut} alt="" width="150" height="150" />
           <h1>Backoffice Login</h1>
           <div className="textboxes">
             <Form onSubmit={(evt) => this.handleSubmit(evt)}>

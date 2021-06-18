@@ -1,1 +1,20 @@
-/* esconde scrollbars */
+@font-face {
+  font-family: "ITCAvantGardeGothic";
+  src: url("../assets/ITCAvantGardeStdBk.woff") format("woff"); /* Pretty Modern Browsers */
+
+  /* Nao temos as fonts necessarias para estes browsers todos, so vai funcionar em browsers recentes
+  src: url('.eot?#iefix') format('embedded-opentype'), /* IE6-IE8
+       url('.woff2') format('woff2'), /* Super Modern Browsers 
+       url('.ttf')  format('truetype'), /* Safari, Android, iOS 
+       url('.svg#svgFontName') format('svg'); Legacy iOS */
+}
+
+/* smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/*nuke para mudar a font*/
+* {
+  font-family: "ITCAvantGardeGothic" !important;
+}

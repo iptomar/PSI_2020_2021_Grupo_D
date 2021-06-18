@@ -1,15 +1,21 @@
-.centered {
+.centeredErro {
   position: fixed;
-  top: 50%;
+  top: 40%;
   left: 50%;
   /* bring your own prefixes */
   transform: translate(-50%, -50%);
 }
 
 h1 {
-  color: purple;
+  color: #ffb81d;
   font-size: 10rem !important;
 }
 div .btn {
   font-size: 5rem;
+}
+
+.centeredErro img {
+  height: 250px;
+  width: 720px;
+  margin-bottom: 50px;
 }
