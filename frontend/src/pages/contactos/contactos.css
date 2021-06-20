@@ -6,6 +6,52 @@
   transform: translate(-50%, -50%);
 }
 
+.creditos {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+.botao {
+	box-shadow: 0px 1px 0px 0px #fff6af;
+	background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+	background-color:#ffec64;
+	border-radius:6px;
+	border:1px solid #ffaa22;
+	display:inline-block;
+	cursor:pointer;
+	color:#333333;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffee66;
+}
+
+.botao:hover {
+	background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+	background-color:#ffab23;
+}
+
+.botao:active {
+	position:relative;
+	top:1px;
+}
+
+#contactos .cartao img {
+margin-top: 20px;
+margin-bottom: 30px;
+}
+  
+#contactos .cartao a {
+color: #253746;
+}
+
+#contactos .cartao h3 {
+margin-bottom: 20px;
+}
+
 h1 {
   color: #ffb81d;
   font-size: 6rem !important;
@@ -23,27 +69,4 @@ h1 {
 .backoffice a:hover {
   text-decoration: none;
   color: #015486;
-}
-
-#contactos .cartao img {
-  margin-top: 20px;
-  margin-bottom: 30px;
-}
-
-#contactos .cartao a {
-  color: #253746;
-}
-
-#contactos .cartao h3 {
-  margin-bottom: 20px;
-}
-#contactos .creditos button {
-  background-color: #ffb81d;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
 }

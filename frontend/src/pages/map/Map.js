@@ -72,6 +72,7 @@ const Map = () => {
         zoom={7}
         scrollWheelZoom={true}
         style={containerStyle}
+        minZoom={2}
       >
         <Dimmer active={dimmer}>
           <Loader content="Loading" size="large" />
