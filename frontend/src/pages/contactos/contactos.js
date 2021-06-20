@@ -4,6 +4,7 @@ import logo_completo from "../../assets/logo_completo.png";
 import "./contactos.css";
 import logo from "../../assets/Icon_amarelo.png";
 import logo_ipt from "../../assets/logo_ipt.png";
+import { Button } from "react-bootstrap";
 
 const contactos = () => {
   return (
@@ -47,7 +48,7 @@ const contactos = () => {
       </div>
     </section>
     <div className="creditos">
-      <a href="#" onClick={() => eval("QreditRoll.start()")} class="botao">Créditos</a>
+      <Button variant="info-light" onClick={() => eval("QreditRoll.start()")}>Créditos</Button>
     </div>
   </>
   );
