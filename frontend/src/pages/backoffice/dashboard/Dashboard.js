@@ -46,6 +46,31 @@ export default class Dashboard extends Component {
       });
   }
 
+  deleteStory(evt) {
+    evt.preventDefault();
+
+    services.map
+      .deleteStory(evt.target.parentElement.id)
+      .then((_) => {
+        toast.success("História eliminada com sucesso!", {
+          position: toast.POSITION.BOTTOM_RIGHT,
+        });
+        this.state.stories.map((story, i) => {
+          if (story._id == evt.target.parentElement.id) {
+            let arr = this.state.stories;
+            arr.splice(i, 1);
+            this.setState({ stories: arr });
+          }
+        });
+      })
+      .catch((e) => {
+        toast.error("Ocorreu um erro!", {
+          position: toast.POSITION.BOTTOM_RIGHT,
+        });
+        console.error(e);
+      });
+  }
+
   render() {
     return (
       <div className="Dashboard">
@@ -75,6 +100,9 @@ export default class Dashboard extends Component {
                 </td>
                 <Button positive onClick={(evt) => this.submitStory(evt)}>
                   Aprovar
+                </Button>
+                <Button negative onClick={(evt) => this.deleteStory(evt)}>
+                  Eliminar
                 </Button>
               </tr>
             ))}
