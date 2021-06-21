@@ -43,6 +43,7 @@ try:
     texto.click()
     texto.send_keys("Isto é um teste de Selenium.")
 
+    #clicar num ponto do mapa
     element = driver.find_element_by_css_selector("#root > div > div")
     ed = ActionChains(driver)
     ed.move_to_element(element).move_by_offset(-8.928487062665504, 13.227539062500002).click().perform()

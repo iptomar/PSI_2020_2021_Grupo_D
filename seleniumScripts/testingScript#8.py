@@ -53,18 +53,21 @@ try:
     ed = ActionChains(driver)
     ed.move_to_element(element).move_by_offset(-8.928487062665504, 13.227539062500002).click().perform()
 
+    #adicionar imagem
     ficheiro = WebDriverWait(driver, 10).until(
         EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div[2]/form/div[6]/input"))
     )
+    #imagem selecionada apartir do diretorio atual
     ficheiro.send_keys(os.getcwd() + "\melao.png")
 
+    #botão para adicionar ponto
     submit = WebDriverWait(driver, 10).until(
         EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div[2]/form/button"))
     )
     submit.click()
 
     time.sleep(5)
-
+    #carregar no botao contatos para entrar no backoffice e aceitar a historia adicionada
     contactos = WebDriverWait(driver, 10).until(
         EC.presence_of_element_located((By.XPATH, "/html/body/div/nav/div/div[2]/a/a"))
     )
