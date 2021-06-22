@@ -6,5 +6,5 @@ export default {
   createStory: (jsonData) => request("POST", "/api/map/story/create", { jsonData }),
   updateStoryImage: (id, formData) => request("PATCH", `/api/map/story/updateimg/${id}`, { formData }),
   checkStory: (id) => request("PUT", `/api/map/story-check/${id}`),
-  deleteStory: (id) => request("DELETE", `/api/map/story/delete/${id}`),
+  deleteStory: (id) => request("DELETE", `/api/map/story-check/${id}`),
 };

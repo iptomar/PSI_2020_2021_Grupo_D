@@ -9,12 +9,13 @@ cluster = MongoClient("mongodb+srv://memetations:lXYYl3PQoKxcv4AW@santa-nossa.jz
 db = cluster["maindb"]
 collection = db["stories-unchecked"]
 
-
+#apaga todos os dados na colecao
 collection.delete_many({})
 
 results = collection.find({})
 for x in results:
     print(x)
 
+#conta o numero de documentos na coleçao/deve ser 0
 post_count = collection.count_documents({})
 print(post_count)

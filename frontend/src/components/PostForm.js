@@ -49,7 +49,9 @@ const MapForm = ({ marker, toggleForm }) => {
         </Button>
       </Form.Group>
       <Form.Group controlId="formName">
-        <Form.Label>Introduza o seu Nome</Form.Label>
+        <Form.Label>
+          Introduza o seu <span style={{ color: "#FFB81D" }}>Nome</span>
+        </Form.Label>
         <Form.Control
           type="text"
           className="my-auto"
@@ -60,18 +62,28 @@ const MapForm = ({ marker, toggleForm }) => {
       </Form.Group>
 
       <Form.Group controlId="formEmail">
-        <Form.Label>Email address</Form.Label>
+        <Form.Label>
+          Endereço de <span style={{ color: "#FFB81D" }}>Email</span>
+        </Form.Label>
         <Form.Control
           type="email"
           placeholder="Email"
           onChange={(e) => setEmail(e.target.value)}
           maxlength="40"
         />
-        <Form.Text>Não vamos partilhar o seu email com mais ninguem.</Form.Text>
+        <Form.Text>
+          <span style={{ color: "#FFB81D" }}>
+            Não vamos partilhar o seu email
+          </span>{" "}
+          com mais ninguem.
+        </Form.Text>
       </Form.Group>
 
       <Form.Group controlId="formStory">
-        <Form.Label> Conte-nos a sua história</Form.Label>
+        <Form.Label>
+          {" "}
+          Conte-nos a sua <span style={{ color: "#FFB81D" }}>História</span>
+        </Form.Label>
         <Form.Control
           as="textarea"
           rows={5}
@@ -92,17 +104,19 @@ const MapForm = ({ marker, toggleForm }) => {
       </Form.Group>
 
       <Form.Group controlId="formImages">
-        <Form.Label>Mostre-nos as suas Fotos!</Form.Label>
+        <Form.Label>
+          Mostre-nos as suas <span style={{ color: "#FFB81D" }}>Fotos</span>
+        </Form.Label>
         <Form.Control type="file" onChange={(e) => handleSelectedImage(e)} />
       </Form.Group>
 
       <Button
         primary
         type="submit"
-        style={{ backgroundColor: "#a379c9", color: "white" }}
+        style={{ backgroundColor: "#FFB81D", color: "#253746" }}
         onClick={notify}
       >
-        Submit
+        Publicar História!
       </Button>
       <ToastContainer />
     </Form>

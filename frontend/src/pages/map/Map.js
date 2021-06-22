@@ -55,13 +55,13 @@ const Map = () => {
     getPoints();
   }, []);
 
-  const L = require('leaflet');
+  const L = require("leaflet");
   const icon_marker = L.icon({
     iconUrl: iconMarker,
     iconSize: [24, 24],
     shadowUrl: null,
     shadowSize: null,
-    shadowAnchor: null
+    shadowAnchor: null,
   });
 
   //Retorno do html do mapa
@@ -72,6 +72,7 @@ const Map = () => {
         zoom={7}
         scrollWheelZoom={true}
         style={containerStyle}
+        minZoom={2}
       >
         <Dimmer active={dimmer}>
           <Loader content="Loading" size="large" />
@@ -85,7 +86,11 @@ const Map = () => {
         {/* button */}
         {!toggleForm && (
           <div className="sembutton">
-            <ButtonForm toggleForm={formToggle} />
+            <ButtonForm
+              toggleForm={formToggle}
+              id="btnDoMapa"
+              className="btnMapa"
+            />
           </div>
         )}
         {!toggleForm &&
@@ -95,19 +100,19 @@ const Map = () => {
               <Popup>
                 <div>
                   {/*O state do selected markers tem toda a informaçao do marker por isso é so meter*/}
-                  <h3>Historia aqui</h3>
+                  <h3>{marker.name}</h3>
                   <p1>{marker.story}</p1>
                   <br></br>
                   <img
                     src={marker.image}
                     alignItems="center"
-                    alt={marker.username}
+                    alt={marker.name}
                     style={{
                       width: "auto",
                       maxWidth: "300px",
                       maxHeight: "300px",
                     }}
-                  /> 
+                  />
                 </div>
               </Popup>
             </Marker>
