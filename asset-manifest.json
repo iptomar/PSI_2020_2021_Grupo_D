@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/PSI_2020_2021_Grupo_D/static/css/main.f39ad9fb.chunk.css",
-    "main.js": "/PSI_2020_2021_Grupo_D/static/js/main.1d5c4d7a.chunk.js",
-    "main.js.map": "/PSI_2020_2021_Grupo_D/static/js/main.1d5c4d7a.chunk.js.map",
+    "main.js": "/PSI_2020_2021_Grupo_D/static/js/main.9cebf0ba.chunk.js",
+    "main.js.map": "/PSI_2020_2021_Grupo_D/static/js/main.9cebf0ba.chunk.js.map",
     "runtime-main.js": "/PSI_2020_2021_Grupo_D/static/js/runtime-main.ed6a7813.js",
     "runtime-main.js.map": "/PSI_2020_2021_Grupo_D/static/js/runtime-main.ed6a7813.js.map",
     "static/css/2.d5f9fbaa.chunk.css": "/PSI_2020_2021_Grupo_D/static/css/2.d5f9fbaa.chunk.css",
@@ -27,6 +27,6 @@
     "static/css/2.d5f9fbaa.chunk.css",
     "static/js/2.2e66702f.chunk.js",
     "static/css/main.f39ad9fb.chunk.css",
-    "static/js/main.1d5c4d7a.chunk.js"
+    "static/js/main.9cebf0ba.chunk.js"
   ]
 }
